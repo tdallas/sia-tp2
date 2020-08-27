@@ -3,7 +3,9 @@ package items;
 import character.atributes.*;
 
 public class Boots extends Item {
-    public Boots(Agility agility, Expertise expertise, Resistance resistance, Strength strength, Vitality vitality) {
-        super(agility, expertise, resistance, strength, vitality);
+    public Boots(final double id, final double agility, final double expertise,
+                  final double resistance, final double strength, final double vitality) {
+        super(id, new Agility(agility), new Expertise(expertise), new Resistance(resistance),
+                new Strength(strength), new Vitality(vitality));
     }
 }
