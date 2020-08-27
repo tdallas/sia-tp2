@@ -1,11 +1,12 @@
-package character.atributes;
+package atributes;
 
 import items.Item;
 
 import java.util.List;
 
-public class Strength extends Attribute {
-    public Strength(double value) {
+public class Agility extends Attribute {
+
+    public Agility(double value) {
         super(value);
     }
 
@@ -14,7 +15,7 @@ public class Strength extends Attribute {
         return item
                 .parallelStream()
                 .reduce(0d,
-                        (aDouble, item1) -> item1.getStrength().getValue() + aDouble,
+                        (aDouble, item1) -> item1.getAgility().getValue() + aDouble,
                         Double::sum);
     }
 }

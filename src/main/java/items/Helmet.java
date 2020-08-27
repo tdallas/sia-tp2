@@ -1,6 +1,6 @@
 package items;
 
-import character.atributes.*;
+import atributes.*;
 
 public class Helmet extends Item {
     public Helmet(final double id, final double agility, final double expertise,

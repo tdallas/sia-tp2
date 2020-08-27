@@ -1,4 +1,4 @@
-package character.atributes;
+package atributes;
 
 import items.Item;
 

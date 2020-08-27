@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Character {
+public abstract class Character {
     private Boots boots;
     private Chest chest;
     private Gloves gloves;
@@ -73,4 +73,7 @@ public class Character {
     public double getDefense(final List<Item> items) {
         return (calculateResistance(items) + calculateExpertise(items)) * calculateVitality(items) * calculateDEM();
     }
+
+    public abstract double calculatePerformance(final List<Item> items);
+
 }

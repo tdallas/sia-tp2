@@ -1,6 +1,6 @@
 package items;
 
-import character.atributes.*;
+import atributes.*;
 import com.univocity.parsers.annotations.Parsed;
 import lombok.Getter;
 

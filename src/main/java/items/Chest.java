@@ -1,6 +1,6 @@
 package items;
 
-import character.atributes.*;
+import atributes.*;
 
 public class Chest extends Item {
     public Chest(final double id, final double agility, final double expertise,

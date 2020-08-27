@@ -1,12 +1,11 @@
-package character.atributes;
+package atributes;
 
 import items.Item;
 
 import java.util.List;
 
-public class Expertise extends Attribute {
-
-    public Expertise(double value) {
+public class Resistance extends Attribute {
+    public Resistance(double value) {
         super(value);
     }
 
@@ -15,7 +14,7 @@ public class Expertise extends Attribute {
         return item
                 .parallelStream()
                 .reduce(0d,
-                        (aDouble, item1) -> item1.getExpertise().getValue() + aDouble,
+                        (aDouble, item1) -> item1.getResistance().getValue() + aDouble,
                         Double::sum);
     }
 }
