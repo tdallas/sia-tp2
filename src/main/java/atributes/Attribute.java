@@ -1,10 +1,7 @@
 package atributes;
 
 
-import items.Item;
 import lombok.Getter;
-
-import java.util.List;
 
 @Getter
 public abstract class Attribute {
@@ -14,5 +11,4 @@ public abstract class Attribute {
         this.value = value;
     }
 
-    public abstract double evaluate(final List<Item> item);
 }

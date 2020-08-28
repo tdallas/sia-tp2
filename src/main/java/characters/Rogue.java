@@ -1,4 +1,4 @@
-package character;
+package characters;
 
 import items.Item;
 import lombok.Getter;
@@ -8,13 +8,13 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Archer extends Character {
-    public Archer(double height) {
+public class Rogue extends Character {
+    public Rogue(double height) {
         super(height);
     }
 
     @Override
     public double calculatePerformance(List<Item> items) {
-        return 0.9 * getAttack(items) + 0.1 * getDefense(items);
+        return 0.8 * getAttack(items) + 0.3 * getDefense(items);
     }
 }

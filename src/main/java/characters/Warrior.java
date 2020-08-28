@@ -1,4 +1,4 @@
-package character;
+package characters;
 
 import items.Item;
 import lombok.Getter;
