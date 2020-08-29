@@ -1,7 +1,9 @@
 package characters;
 
 import items.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Arrays;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public abstract class Character {
     private Boots boots;
     private Chest chest;
@@ -22,45 +25,45 @@ public abstract class Character {
         this.height = height;
     }
 
-    private double calculateATM() {
+    protected double calculateATM() {
         final double midTerm = (3 * height - 5);
         return 0.7 - Math.pow(midTerm, 4) + Math.pow(midTerm, 2) + (height / 4);
     }
 
-    private double calculateDEM() {
+    protected double calculateDEM() {
         final double midTerm = (2.5 * height - 4.16);
         return 1.9 + Math.pow(midTerm, 4) - Math.pow(midTerm, 2) - (3 * height / 10);
     }
 
-    private List<Item> getItems() {
+    protected List<Item> getItems() {
         return Arrays.asList(boots, chest, gloves, helmet, weapon);
     }
 
-    private static double calculateStrength(final List<Item> items) {
+    protected double calculateStrength(final List<Item> items) {
         return 100 * Math.tanh(0.01 * items.stream().reduce(0d,
                 (aDouble, item1) -> item1.getStrength().getValue() + aDouble,
                 Double::sum));
     }
 
-    private double calculateAgility(final List<Item> items) {
+    protected double calculateAgility(final List<Item> items) {
         return Math.tanh(0.01 * items.stream().reduce(0d,
                 (aDouble, item1) -> item1.getAgility().getValue() + aDouble,
                 Double::sum));
     }
 
-    private double calculateExpertise(final List<Item> items) {
+    protected double calculateExpertise(final List<Item> items) {
         return 0.6 * Math.tanh(0.01 * items.stream().reduce(0d,
                 (aDouble, item1) -> item1.getExpertise().getValue() + aDouble,
                 Double::sum));
     }
 
-    private double calculateResistance(final List<Item> items) {
+    protected double calculateResistance(final List<Item> items) {
         return Math.tanh(0.01 * items.stream().reduce(0d,
                 (aDouble, item1) -> item1.getResistance().getValue() + aDouble,
                 Double::sum));
     }
 
-    private double calculateVitality(final List<Item> items) {
+    protected double calculateVitality(final List<Item> items) {
         return 100 * Math.tanh(0.01 * items.stream().reduce(0d,
                 (aDouble, item1) -> item1.getVitality().getValue() + aDouble,
                 Double::sum));
