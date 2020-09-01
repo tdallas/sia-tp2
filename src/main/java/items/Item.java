@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public abstract class Item {
     @Parsed(field = "id")
-    private final double id;
+    private final long id;
     @Parsed(field = "Ag")
     private final Agility agility;
     @Parsed(field = "Ex")
@@ -19,7 +19,7 @@ public abstract class Item {
     @Parsed(field = "Vi")
     private final Vitality vitality;
 
-    public Item(final double id, final Agility agility, final Expertise expertise,
+    public Item(final long id, final Agility agility, final Expertise expertise,
                 final Resistance resistance, final Strength strength, final Vitality vitality) {
         this.id = id;
         this.agility = agility;

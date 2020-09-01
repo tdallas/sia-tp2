@@ -41,7 +41,7 @@ public class ItemParser {
     private static <T extends Item> T getInstance(String[] line, Class<T> itemClass) {
         if (itemClass.equals(Weapon.class)) {
             return (T) new Weapon(
-                    Double.parseDouble(line[0]),
+                    Integer.parseInt(line[0]),
                     Double.parseDouble(line[2]),
                     Double.parseDouble(line[3]),
                     Double.parseDouble(line[4]),
@@ -50,7 +50,7 @@ public class ItemParser {
             );
         } else if (itemClass.equals(Gloves.class)) {
             return (T) new Gloves(
-                    Double.parseDouble(line[0]),
+                    Integer.parseInt(line[0]),
                     Double.parseDouble(line[2]),
                     Double.parseDouble(line[3]),
                     Double.parseDouble(line[4]),
@@ -59,7 +59,7 @@ public class ItemParser {
             );
         } else if (itemClass.equals(Helmet.class)) {
             return (T) new Helmet(
-                    Double.parseDouble(line[0]),
+                    Integer.parseInt(line[0]),
                     Double.parseDouble(line[2]),
                     Double.parseDouble(line[3]),
                     Double.parseDouble(line[4]),
@@ -68,7 +68,7 @@ public class ItemParser {
             );
         } else if (itemClass.equals(Chest.class)) {
             return (T) new Chest(
-                    Double.parseDouble(line[0]),
+                    Integer.parseInt(line[0]),
                     Double.parseDouble(line[2]),
                     Double.parseDouble(line[3]),
                     Double.parseDouble(line[4]),
@@ -77,7 +77,7 @@ public class ItemParser {
             );
         } else {
             return (T) new Boots(
-                    Double.parseDouble(line[0]),
+                    Integer.parseInt(line[0]),
                     Double.parseDouble(line[2]),
                     Double.parseDouble(line[3]),
                     Double.parseDouble(line[4]),

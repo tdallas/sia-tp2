@@ -16,7 +16,7 @@ public class SinglePointCrossover extends Crossover {
         return Arrays.asList(firstChildAlleles, secondChildAlleles);
     }
 
-    private List<Item> getAlleles(List<Item> from, List<Item> to, int toPoint) {
+    protected List<Item> getAlleles(List<Item> from, List<Item> to, int toPoint) {
         final List<Item> newAlleles = new ArrayList<>(from.subList(0, toPoint));
         newAlleles.addAll(to.subList(toPoint, MAX_ALLELES));
         return newAlleles;

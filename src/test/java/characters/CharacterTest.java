@@ -11,11 +11,11 @@ public class CharacterTest {
      * Since all tests must be with full precision every assert should have a `delta = 0`
      */
     private final double DELTA = 0;
-    private final Weapon weapon = new Weapon(1d, 1d, 1d, 5d, 1d,10d);
-    private final Chest chest = new Chest(1d, 1d, 1d, 5d, 1d,10d);
-    private final Helmet helmet = new Helmet(1d, 1d, 1d, 5d, 1d,10d);
-    private final Gloves gloves = new Gloves(1d, 1d, 1d, 5d, 1d,10d);
-    private final Boots boots = new Boots(1d, 1d, 1d, 5d, 1d,10d);
+    private final Weapon weapon = new Weapon(1, 1d, 1d, 5d, 1d,10d);
+    private final Chest chest = new Chest(1, 1d, 1d, 5d, 1d,10d);
+    private final Helmet helmet = new Helmet(1, 1d, 1d, 5d, 1d,10d);
+    private final Gloves gloves = new Gloves(1, 1d, 1d, 5d, 1d,10d);
+    private final Boots boots = new Boots(1, 1d, 1d, 5d, 1d,10d);
 
     /**
      * If height is 1.5 => ATM = 1.2625
