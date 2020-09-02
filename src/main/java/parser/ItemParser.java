@@ -11,11 +11,11 @@ import java.util.Map;
 
 public class ItemParser {
 
-    private static final String weaponPath = "/home/tomas/workspace/fulldata/armas.tsv";
-    private static final String bootPath = "/home/tomas/workspace/fulldata/botas.tsv";
-    private static final String helmetPath = "/home/tomas/workspace/fulldata/cascos.tsv";
-    private static final String glovesPath = "/home/tomas/workspace/fulldata/guantes.tsv";
-    private static final String chestPath = "/home/tomas/workspace/fulldata/pecheras.tsv";
+    private static final String weaponPath = "/home/tomas/fulldata/armas.tsv";
+    private static final String bootPath = "/home/tomas/fulldata/botas.tsv";
+    private static final String helmetPath = "/home/tomas/fulldata/cascos.tsv";
+    private static final String glovesPath = "/home/tomas/fulldata/guantes.tsv";
+    private static final String chestPath = "/home/tomas/fulldata/pecheras.tsv";
 
     private static final Map<Class<? extends Item>, String> classToPath = Map.of(
             Weapon.class, weaponPath,

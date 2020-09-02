@@ -1,3 +1,4 @@
+import ItemProvider.*;
 import items.*;
 import parser.ItemParser;
 
@@ -5,15 +6,12 @@ import java.util.List;
 
 public class Main {
     public static void main(final String[] args) {
-        List<Weapon> weapons = ItemParser.parseItem(Weapon.class);
-        System.out.printf("Weapons size %d\n", weapons.size());
-        List<Gloves> gloves = ItemParser.parseItem(Gloves.class);
-        System.out.printf("Gloves size %d\n", gloves.size());
-        List<Boots> boots = ItemParser.parseItem(Boots.class);
-        System.out.printf("Boots size %d\n", boots.size());
-        List<Chest> chest = ItemParser.parseItem(Chest.class);
-        System.out.printf("Chest size %d\n", chest.size());
-        List<Helmet> helmet = ItemParser.parseItem(Helmet.class);
-        System.out.printf("Helmet size %d\n", helmet.size());
+        final WeaponProvider weaponProvider = new WeaponProvider(ItemParser.parseItem(Weapon.class));
+        final GlovesProvider glovesProvider = new GlovesProvider(ItemParser.parseItem(Gloves.class));
+        final BootsProvider bootsProvider = new BootsProvider(ItemParser.parseItem(Boots.class));
+        final ChestProvider chestProvider = new ChestProvider(ItemParser.parseItem(Chest.class));
+        final HelmetProvider helmetProvider = new HelmetProvider(ItemParser.parseItem(Helmet.class));
+
+        ItemsProvider itemsProvider = new ItemsProvider(bootsProvider, chestProvider, glovesProvider, weaponProvider, helmetProvider);
     }
 }

@@ -4,10 +4,16 @@ import ItemProvider.ItemsProvider;
 import items.Item;
 
 import java.util.List;
+import java.util.Random;
 
 public class LimitedMultiGenMutation extends Mutation {
+
+    public LimitedMultiGenMutation(double probability) {
+        super(probability);
+    }
+
     @Override
-    List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
+    public List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
         return null;
     }
 }
