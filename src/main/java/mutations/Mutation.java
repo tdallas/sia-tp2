@@ -1,5 +1,6 @@
 package mutations;
 
+import ItemProvider.ItemsProvider;
 import items.Item;
 
 import java.util.List;
@@ -10,5 +11,5 @@ public abstract class Mutation {
      * @param gen : it represents the full item list (alleles)
      * @return
      */
-    abstract List<Item> mutate(final List<Item> gen);
+    abstract List<Item> mutate(final List<Item> gen, final ItemsProvider itemsProvider);
 }
