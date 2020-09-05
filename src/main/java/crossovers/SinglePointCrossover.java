@@ -1,6 +1,7 @@
 package crossovers;
 
 import items.Item;
+import mutations.Allele;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,15 +10,15 @@ import java.util.List;
 public class SinglePointCrossover extends Crossover {
 
     @Override
-    public List<List<Item>> crossover(final List<Item> from, final List<Item> to) {
+    public List<List<Allele>> crossover(final List<Allele> from, final List<Allele> to) {
         final int crossoverPoint = getCrossoverPoint();
-        final List<Item> firstChildAlleles = getAlleles(from, to, crossoverPoint);
-        final List<Item> secondChildAlleles = getAlleles(to, from, crossoverPoint);
+        final List<Allele> firstChildAlleles = getAlleles(from, to, crossoverPoint);
+        final List<Allele> secondChildAlleles = getAlleles(to, from, crossoverPoint);
         return Arrays.asList(firstChildAlleles, secondChildAlleles);
     }
 
-    protected List<Item> getAlleles(List<Item> from, List<Item> to, int toPoint) {
-        final List<Item> newAlleles = new ArrayList<>(from.subList(0, toPoint));
+    protected List<Allele> getAlleles(List<Allele> from, List<Allele> to, int toPoint) {
+        final List<Allele> newAlleles = new ArrayList<>(from.subList(0, toPoint));
         newAlleles.addAll(to.subList(toPoint, MAX_ALLELES));
         return newAlleles;
     }
