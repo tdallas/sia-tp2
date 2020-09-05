@@ -1,6 +1,5 @@
 package crossovers;
 
-import items.Item;
 import mutations.Allele;
 
 import java.util.ArrayList;

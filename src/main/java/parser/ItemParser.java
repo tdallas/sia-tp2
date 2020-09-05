@@ -8,25 +8,36 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class ItemParser {
 
-    private static final String weaponPath = "/home/tomas/fulldata/armas.tsv";
-    private static final String bootPath = "/home/tomas/fulldata/botas.tsv";
-    private static final String helmetPath = "/home/tomas/fulldata/cascos.tsv";
-    private static final String glovesPath = "/home/tomas/fulldata/guantes.tsv";
-    private static final String chestPath = "/home/tomas/fulldata/pecheras.tsv";
+    private final String weaponPath;
+    private final String bootPath;
+    private final String helmetPath;
+    private final String glovesPath;
+    private final String chestPath;
 
-    private static final Map<Class<? extends Item>, String> classToPath = Map.of(
-            Weapon.class, weaponPath,
-            Boots.class, bootPath,
-            Helmet.class, helmetPath,
-            Gloves.class, glovesPath,
-            Chest.class, chestPath
-    );
+    public ItemParser(final Properties properties) {
+        this.weaponPath = (String) properties.get("weaponPath");
+        this.bootPath = (String) properties.get("bootPath");
+        this.helmetPath = (String) properties.get("helmetPath");
+        this.glovesPath = (String) properties.get("glovesPath");
+        this.chestPath = (String) properties.get("chestPath");
+    }
 
-    public static <T extends Item> List<T> parseItem(final Class<T> itemClass) {
-        File weaponFile = new File(classToPath.get(itemClass));
+    private Map<Class<? extends Item>, String> getClassToPath() {
+      return Map.of(
+                Weapon.class, weaponPath,
+                Boots.class, bootPath,
+                Helmet.class, helmetPath,
+                Gloves.class, glovesPath,
+                Chest.class, chestPath
+        );
+    }
+
+    public <T extends Item> List<T> parseItem(final Class<T> itemClass) {
+        File weaponFile = new File(getClassToPath().get(itemClass));
         TsvParserSettings parserSettings = new TsvParserSettings();
         parserSettings.setHeaderExtractionEnabled(true);
         // csvHeader:   id      Fu      Ag      Ex      Re      Vi
@@ -38,7 +49,7 @@ public class ItemParser {
 
     // FIXME This is NEFASTO
     // Find a way to pass a constructor as parameter and built a map
-    private static <T extends Item> T getInstance(String[] line, Class<T> itemClass) {
+    private <T extends Item> T getInstance(String[] line, Class<T> itemClass) {
         if (itemClass.equals(Weapon.class)) {
             return (T) new Weapon(
                     Integer.parseInt(line[0]),
