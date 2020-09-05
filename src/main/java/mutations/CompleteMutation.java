@@ -1,19 +1,13 @@
 package mutations;
 
-import ItemProvider.ItemProvider;
-import ItemProvider.ItemsProvider;
-import items.Item;
-
-import java.util.List;
 import java.util.Random;
 
-public class CompleteMutation extends Mutation {
-    public CompleteMutation(double probability) {
-        super(probability);
+/**
+ * Con una probabilidad Pm se mutan todos los alelos acorde a al funcion asociada a cada alelo
+ */
+public class CompleteMutation extends GenMutation {
+    public CompleteMutation(final double probability, final Random random) {
+        super(probability, random);
     }
 
-    @Override
-    public List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
-        return null;
-    }
 }

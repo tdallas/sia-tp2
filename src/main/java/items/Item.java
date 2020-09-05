@@ -3,11 +3,11 @@ package items;
 import atributes.*;
 import com.univocity.parsers.annotations.Parsed;
 import lombok.Getter;
+import mutations.Allele;
 
 import java.util.Objects;
 
-@Getter
-public abstract class Item {
+public abstract class Item implements Allele {
     @Parsed(field = "id")
     private final long id;
     @Parsed(field = "Ag")
@@ -47,5 +47,29 @@ public abstract class Item {
     @Override
     public int hashCode() {
         return Objects.hash(id, agility, expertise, resistance, strength, vitality);
+    }
+
+    public double getAgility() {
+        return agility.getValue();
+    }
+
+    public double getExpertise() {
+        return expertise.getValue();
+    }
+
+    public double getResistance() {
+        return resistance.getValue();
+    }
+
+    public double getStrength() {
+        return strength.getValue();
+    }
+
+    public double getVitality() {
+        return vitality.getValue();
+    }
+
+    public long getId() {
+        return id;
     }
 }

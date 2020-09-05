@@ -1,19 +1,14 @@
 package mutations;
 
-import ItemProvider.ItemsProvider;
-import items.Item;
-
-import java.util.List;
 import java.util.Random;
 
-public class LimitedMultiGenMutation extends Mutation {
+/**
+ * Se selecciona una cantidad azarosa [1, M] de genes para mutar, con probabilidad Pm (todos? cada uno?)
+ */
+public class LimitedMultiGenMutation extends GenMutation {
 
-    public LimitedMultiGenMutation(double probability) {
-        super(probability);
+    public LimitedMultiGenMutation(final double probability, final Random random) {
+        super(probability, random);
     }
 
-    @Override
-    public List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
-        return null;
-    }
 }

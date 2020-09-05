@@ -1,17 +1,13 @@
 package mutations;
 
-import ItemProvider.ItemsProvider;
-import items.Item;
+import java.util.Random;
 
-import java.util.List;
-
-public class UniformMultiGenMutation extends Mutation {
-    public UniformMultiGenMutation(double probability) {
-        super(probability);
+/**
+ * Cada gen tiene una probabilidad Pm de ser mutado
+ */
+public class UniformMultiGenMutation extends GenMutation {
+    public UniformMultiGenMutation(final double probability, final Random random) {
+        super(probability, random);
     }
 
-    @Override
-    List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
-        return null;
-    }
 }

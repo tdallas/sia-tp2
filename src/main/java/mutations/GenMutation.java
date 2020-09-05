@@ -1,24 +1,16 @@
 package mutations;
 
-import ItemProvider.ItemsProvider;
-import items.Item;
-
-import java.util.List;
 import java.util.Random;
 
-public class GenMutation extends Mutation {
+public class GenMutation {
 
-    public GenMutation(double probability) {
-        super(probability);
+    private final double probability;
+    private final Random random;
+
+    public GenMutation(final double probability, final Random random) {
+        this.probability = probability;
+        this.random = random;
     }
 
-    @Override
-    List<Item> mutate(List<Item> gen, ItemsProvider itemsProvider) {
-        if (new Random().nextDouble() < getProbability()) {
-            int positionToReplace = new Random().nextInt(gen.size());
-            int randomPosition = new Random().nextInt(ItemsProvider.MAX_ITEMS);
-            gen.set(positionToReplace, itemsProvider.getItemToReplace(gen.get(positionToReplace), randomPosition));
-        }
-        return gen;
-    }
+   // protected Allele mutateAtPosition(final int position,)
 }
