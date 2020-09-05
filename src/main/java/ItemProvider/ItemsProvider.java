@@ -3,6 +3,7 @@ package ItemProvider;
 
 import items.*;
 import lombok.AllArgsConstructor;
+import mutations.Allele;
 
 @AllArgsConstructor
 public class ItemsProvider {
@@ -21,7 +22,7 @@ public class ItemsProvider {
     private Chest getChest(final int position) { return chestProvider.provideItem(position);}
     private Weapon getWeapon(final int position) { return weaponProvider.provideItem(position);}
 
-    public Item getItemToReplace(final Item item, final int position) {
+    public Item getItemToReplace(final Allele item, final int position) {
         if (item instanceof Gloves) {
             return getGloves(position);
         } else if (item instanceof Chest) {
