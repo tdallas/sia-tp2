@@ -4,6 +4,8 @@ import atributes.*;
 import com.univocity.parsers.annotations.Parsed;
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public abstract class Item {
     @Parsed(field = "id")
@@ -27,5 +29,23 @@ public abstract class Item {
         this.resistance = resistance;
         this.strength = strength;
         this.vitality = vitality;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id == item.id &&
+                Objects.equals(agility, item.agility) &&
+                Objects.equals(expertise, item.expertise) &&
+                Objects.equals(resistance, item.resistance) &&
+                Objects.equals(strength, item.strength) &&
+                Objects.equals(vitality, item.vitality);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, agility, expertise, resistance, strength, vitality);
     }
 }

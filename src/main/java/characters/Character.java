@@ -8,10 +8,10 @@ import lombok.Setter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public abstract class Character {
     private Boots boots;
     private Chest chest;
@@ -19,6 +19,15 @@ public abstract class Character {
     private Helmet helmet;
     private Weapon weapon;
     private final double height;
+
+    public Character(Boots boots, Chest chest, Gloves gloves, Helmet helmet, Weapon weapon, double height) {
+        this.boots = boots;
+        this.chest = chest;
+        this.gloves = gloves;
+        this.helmet = helmet;
+        this.weapon = weapon;
+        this.height = height;
+    }
 
     // We assume height is already validated
     public Character(final double height) {
@@ -35,7 +44,7 @@ public abstract class Character {
         return 1.9 + Math.pow(midTerm, 4) - Math.pow(midTerm, 2) - (3 * height / 10);
     }
 
-    protected List<Item> getItems() {
+    public List<Item> getItems() {
         return Arrays.asList(boots, chest, gloves, helmet, weapon);
     }
 

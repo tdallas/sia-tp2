@@ -1,6 +1,6 @@
 package characters;
 
-import items.Item;
+import items.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +10,11 @@ import java.util.List;
 @Getter
 @Setter
 public class Warrior extends Character {
+
+    public Warrior(Boots boots, Chest chest, Gloves gloves, Helmet helmet, Weapon weapon, double height) {
+        super(boots, chest, gloves, helmet, weapon, height);
+    }
+
     public Warrior(double height) {
         super(height);
     }
