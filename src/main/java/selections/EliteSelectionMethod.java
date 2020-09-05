@@ -7,8 +7,8 @@ import java.util.List;
 
 public class EliteSelectionMethod extends SelectionMethod{
 
-    public EliteSelectionMethod(double probability) {
-        super(probability);
+    public EliteSelectionMethod(double percentage) {
+        super(percentage);
     }
 
     @Override

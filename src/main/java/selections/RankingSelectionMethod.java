@@ -3,8 +3,8 @@ package selections;
 import java.util.Random;
 
 public class RankingSelectionMethod extends RouletteSelectionMethod{
-    public RankingSelectionMethod(double probability, Random rand) {
-        super(probability, rand);
+    public RankingSelectionMethod(double percentage, Random rand) {
+        super(percentage, rand);
     }
 
     @Override

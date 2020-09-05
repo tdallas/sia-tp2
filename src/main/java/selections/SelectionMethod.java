@@ -6,10 +6,10 @@ import java.util.List;
 
 public abstract class SelectionMethod {
     private List<Character> population;
-    private final double probability;
+    private final double percentage;
 
-    public SelectionMethod(double probability) {
-        this.probability = probability;
+    public SelectionMethod(double percentage) {
+        this.percentage = percentage;
     }
 
     public List<Character> getPopulation() {
@@ -20,8 +20,8 @@ public abstract class SelectionMethod {
         this.population = population;
     }
 
-    public double getProbability() {
-        return probability;
+    public double getPercentage() {
+        return percentage;
     }
 
     public abstract List<Character> select(final List<Character> population, final int k);

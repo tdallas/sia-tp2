@@ -10,8 +10,8 @@ public class RouletteSelectionMethod extends SelectionMethod{
     private final Random rand;
 
 
-    public RouletteSelectionMethod(final double probability, final Random rand){
-        super(probability);
+    public RouletteSelectionMethod(final double percentage, final Random rand){
+        super(percentage);
         this.rand = rand;
     }
 
@@ -31,7 +31,6 @@ public class RouletteSelectionMethod extends SelectionMethod{
         randomArray = setRandomRArray(k);
         relativeFitness = calculateRelativeFitness();
         accumulatedFitness = calculateAccumulatedFitness(relativeFitness);
-
 
         for (int j = 0; j < k; j++) {
             selected = false;
@@ -54,7 +53,6 @@ public class RouletteSelectionMethod extends SelectionMethod{
         }
         return randomArray;
     }
-
 
     double[] calculateRelativeFitness() {
         double[] relativeFitness = new double[getPopulation().size()];

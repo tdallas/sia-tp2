@@ -3,8 +3,8 @@ package selections;
 import java.util.Random;
 
 public class UniversalSelectionMethod extends RouletteSelectionMethod{
-    public UniversalSelectionMethod(double probability, Random rand) {
-        super(probability, rand);
+    public UniversalSelectionMethod(double percentage, Random rand) {
+        super(percentage, rand);
     }
 
     @Override
