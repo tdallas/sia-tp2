@@ -1,5 +1,8 @@
 package mutations;
 
+import ItemProvider.ItemsProvider;
+
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -7,8 +10,21 @@ import java.util.Random;
  */
 public class LimitedMultiGenMutation extends GenMutation {
 
-    public LimitedMultiGenMutation(final Random random) {
-        super( random);
+    private final double probability;
+
+    public LimitedMultiGenMutation(final double probability, final Random random, double probability1) {
+        super(random);
+        this.probability = probability1;
+    }
+
+    public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
+        int amountToMutate = getRandom().nextInt(alleles.size()) - 1;
+        while (amountToMutate >= 0) {
+            if (getRandom().nextDouble() < probability) {
+                mutateAtPosition(AlleleType.getAlleleType(amountToMutate--), alleles, itemsProvider);
+            }
+        }
+        return alleles;
     }
 
 }
