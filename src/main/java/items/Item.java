@@ -2,7 +2,6 @@ package items;
 
 import atributes.*;
 import com.univocity.parsers.annotations.Parsed;
-import lombok.Getter;
 import mutations.Allele;
 
 import java.util.Objects;

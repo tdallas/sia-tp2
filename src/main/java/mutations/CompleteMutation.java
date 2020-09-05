@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class CompleteMutation extends GenMutation {
     public CompleteMutation(final double probability, final Random random) {
-        super(probability, random);
+        super(random);
     }
 
 }

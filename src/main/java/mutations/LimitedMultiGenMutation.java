@@ -7,8 +7,8 @@ import java.util.Random;
  */
 public class LimitedMultiGenMutation extends GenMutation {
 
-    public LimitedMultiGenMutation(final double probability, final Random random) {
-        super(probability, random);
+    public LimitedMultiGenMutation(final Random random) {
+        super( random);
     }
 
 }

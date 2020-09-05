@@ -2,8 +2,6 @@ import ItemProvider.*;
 import items.*;
 import parser.ItemParser;
 
-import java.util.List;
-
 public class Main {
     public static void main(final String[] args) {
         final WeaponProvider weaponProvider = new WeaponProvider(ItemParser.parseItem(Weapon.class));

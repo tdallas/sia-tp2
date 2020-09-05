@@ -2,14 +2,10 @@ package characters;
 
 import atributes.Height;
 import items.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 @Setter
 public abstract class Character {

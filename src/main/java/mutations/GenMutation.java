@@ -2,7 +2,6 @@ package mutations;
 
 import ItemProvider.ItemsProvider;
 import atributes.Height;
-import items.Boots;
 
 import java.util.List;
 import java.util.Random;
