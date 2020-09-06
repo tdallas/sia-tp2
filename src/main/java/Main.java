@@ -74,7 +74,7 @@ public class Main {
         else {
             System.out.println("Invalid character class. Possible options: WARRIOR, ARCHER, DEFENDER, ROGUE");
         }
-        return new GeneticsAlgorithm(random, populationSize, itemsProvider, selectionMethod1, selectionMethod2, crossover, mutation, implementation, cutCondition, firstPopulation);
+        return new GeneticsAlgorithm(random, populationSize, itemsProvider, selectionMethod1, selectionMethod2, crossover, mutation, implementation, cutCondition, implementation.getK(), firstPopulation);
     }
 
 }
