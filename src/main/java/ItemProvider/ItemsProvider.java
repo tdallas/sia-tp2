@@ -2,6 +2,7 @@ package ItemProvider;
 
 
 import alleles.Allele;
+import alleles.AlleleType;
 import alleles.items.*;
 import lombok.AllArgsConstructor;
 
@@ -44,6 +45,20 @@ public class ItemsProvider {
         } else if (item instanceof Boots) {
             return getBoots(position);
         } else if (item instanceof Helmet) {
+            return getHelmet(position);
+        } else {
+            return getWeapon(position);
+        }
+    }
+
+    public Item getItemToReplace(final AlleleType itemType, final int position) {
+        if (itemType == AlleleType.GLOVES) {
+            return getGloves(position);
+        } else if (itemType == AlleleType.CHEST) {
+            return getChest(position);
+        } else if (itemType == AlleleType.BOOTS) {
+            return getBoots(position);
+        } else if (itemType == AlleleType.HEIGHT) {
             return getHelmet(position);
         } else {
             return getWeapon(position);

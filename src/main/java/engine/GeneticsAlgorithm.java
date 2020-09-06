@@ -5,13 +5,15 @@ import characters.Character;
 import crossovers.Crossover;
 import cutConditions.CutCondition;
 import engine.implementation.Implementation;
+import engine.utils.CharacterFactory;
+import engine.utils.PopulationGenerator;
 import mutations.Mutation;
 import selections.SelectionMethod;
 
 import java.util.List;
 import java.util.Random;
 
-public class GeneticsAlgorithm {
+public class GeneticsAlgorithm<T extends Character> {
     private final Random random;
     private final int populationSize;
     private final Implementation implementation;
@@ -23,9 +25,21 @@ public class GeneticsAlgorithm {
     private final SelectionMethod repetitionMethod1;
     private final SelectionMethod repetitionMethod2;
     private final CutCondition cutCondition;
-    private List<Character> currentPopulation;
+    private List<T> currentPopulation;
+    private final CharacterFactory<T> characterFactory;
 
-    public GeneticsAlgorithm(Random random, int populationSize, Implementation implementation, ItemsProvider itemsProvider, Crossover crossover, Mutation mutation, SelectionMethod selectionMethod1, SelectionMethod selectionMethod2, SelectionMethod repetitionMethod1, SelectionMethod repetitionMethod2, CutCondition cutCondition) {
+    public GeneticsAlgorithm(final Random random,
+                             final int populationSize,
+                             final Implementation implementation,
+                             final ItemsProvider itemsProvider,
+                             final Crossover crossover,
+                             final Mutation mutation,
+                             final SelectionMethod selectionMethod1,
+                             final SelectionMethod selectionMethod2,
+                             final SelectionMethod repetitionMethod1,
+                             final SelectionMethod repetitionMethod2,
+                             final CutCondition cutCondition,
+                             final CharacterFactory<T> characterFactory) {
         this.random = random;
         this.populationSize = populationSize;
         this.implementation = implementation;
@@ -37,6 +51,12 @@ public class GeneticsAlgorithm {
         this.repetitionMethod1 = repetitionMethod1;
         this.repetitionMethod2 = repetitionMethod2;
         this.cutCondition = cutCondition;
-//        this.currentPopulation = generateFirstPopulation();
+        this.characterFactory = characterFactory;
+        this.currentPopulation = new PopulationGenerator<T>().generateFirstPopulation(
+                populationSize,
+                random,
+                itemsProvider,
+                characterFactory
+        );
     }
 }
