@@ -9,10 +9,15 @@ import java.util.Properties;
 @NoArgsConstructor
 public class PropertiesParser {
 
-    public Properties loadProperties() throws IOException {
+    public Properties loadProperties() {
         InputStream inputStream = getClass().getResourceAsStream("/config.properties");
         Properties properties = new Properties();
-        properties.load(inputStream);
+        try {
+            properties.load(inputStream);
+        } catch (IOException e) {
+            System.out.println("Error trying to load config.properties");
+            System.exit(1);
+        }
         return properties;
     }
 

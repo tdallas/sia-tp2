@@ -29,4 +29,5 @@ public class ConfigKeys {
     public static final String POPULATION_SIZE = "populationSize";
     public static final String CLASS = "class";
     public static final String IMPLEMENTATION_MODE = "implementationMode";
+    public static final String IMPLEMENTATION_MODE_PARAMETER = IMPLEMENTATION_MODE + ".parameter";
 }
