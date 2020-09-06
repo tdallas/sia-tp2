@@ -58,7 +58,7 @@ public class ItemsProvider {
             return getChest(position);
         } else if (itemType == AlleleType.BOOTS) {
             return getBoots(position);
-        } else if (itemType == AlleleType.HEIGHT) {
+        } else if (itemType == AlleleType.HELMET) {
             return getHelmet(position);
         } else {
             return getWeapon(position);
