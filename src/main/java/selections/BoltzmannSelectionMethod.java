@@ -3,16 +3,14 @@ package selections;
 import java.util.Random;
 
 public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
-    private static final double t0 = 5;
+    private static final double t0 = 10;
     private static final double tC = 1;
 
-    private int generations;
-    private final int maxGenerations;
+    private int iterations;
 
-    public BoltzmannSelectionMethod(double percentage, Random rand, final int maxGenerations) {
+    public BoltzmannSelectionMethod(double percentage, Random rand) {
         super(percentage, rand);
-        this.maxGenerations = maxGenerations;
-        this.generations = 0;
+        this.iterations = 0;
     }
 
     @Override
@@ -22,8 +20,8 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
         double[] boltzmannFitness = new double[size];
         double[] relativeFitness = new double[size];
 
-        double T = tC + (t0 - tC)*Math.pow(Math.E, -((double)generations / (double)maxGenerations));
-        generations++;
+        double T = tC + (t0 - tC)*Math.pow(Math.E, -iterations);
+        iterations++;
         double fitnessSum = 0, average = 0;
         double fitness;
 

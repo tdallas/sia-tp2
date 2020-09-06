@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * Con una probabilidad Pm se mutan todos los alelos acorde a la funcion asociada a cada alelo
  */
-public class CompleteMutation extends GenMutation {
+public class CompleteMutation extends Mutation {
     private final double probability;
 
     public CompleteMutation(final double probability, final Random random) {

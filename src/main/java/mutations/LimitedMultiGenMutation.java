@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * Se selecciona una cantidad azarosa [1, M] de genes para mutar, con probabilidad Pm (todos? cada uno?)
  */
-public class LimitedMultiGenMutation extends GenMutation {
+public class LimitedMultiGenMutation extends Mutation {
 
     private final double probability;
 
@@ -21,7 +21,7 @@ public class LimitedMultiGenMutation extends GenMutation {
 
     @Override
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
-        int amountToMutate = getRandom().nextInt(alleles.size()) - 1;
+        int amountToMutate = getRandom().nextInt(MAX_ALLELES);
         while (amountToMutate >= 0) {
             if (getRandom().nextDouble() < probability) {
                 mutateAtPosition(AlleleType.getAlleleType(amountToMutate--), alleles, itemsProvider);

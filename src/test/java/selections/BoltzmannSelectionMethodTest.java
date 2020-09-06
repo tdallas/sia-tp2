@@ -48,7 +48,7 @@ public class BoltzmannSelectionMethodTest {
 
     @Test
     public void boltzmannSelectionTest() {
-        BoltzmannSelectionMethod boltzmannSelectionMethod = new BoltzmannSelectionMethod(1, new Random(1), 10);
+        BoltzmannSelectionMethod boltzmannSelectionMethod = new BoltzmannSelectionMethod(1, new Random(1));
         List<Character> population = Arrays.asList(c1, c2, c3, c4);
         List<Character> selected = boltzmannSelectionMethod.select(population, 3);
         assertTrue(selected.contains(c4));
