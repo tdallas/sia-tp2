@@ -56,7 +56,7 @@ public class RouletteSelectionMethod extends SelectionMethod {
 
     double[] calculateRelativeFitness() {
         double[] relativeFitness = new double[getPopulation().size()];
-        int fitnessSum = 0;
+        double fitnessSum = 0;
 
         for (Character c : getPopulation()) {
             fitnessSum += c.getPerformance();
