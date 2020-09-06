@@ -1,5 +1,6 @@
 package selections;
 
+import java.util.Collections;
 import java.util.Random;
 
 public class RankingSelectionMethod extends RouletteSelectionMethod {
@@ -12,7 +13,7 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
         double[] relativeFitness = new double[getPopulation().size()];
         int fitnessSum = (getPopulation().size() * (getPopulation().size() + 1)) / 2;
 
-        getPopulation().sort((c1, c2) -> (int) (c2.getPerformance() - c1.getPerformance()));
+        Collections.sort(getPopulation());
 
         for (int i = 0; i < getPopulation().size(); i++)
             relativeFitness[i] = ((double) (i + 1)) / fitnessSum;
