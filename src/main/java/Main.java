@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
+import static engine.utils.CharacterFactory.*;
+
 public class Main {
 
     public static void main(final String[] args){
@@ -51,22 +53,22 @@ public class Main {
         List<Character> firstPopulation = null;
 
         String characterClass = (String) properties.get(ConfigKeys.CLASS);
-        if(characterClass.equals("WARRIOR")){
+        if(characterClass.equals(WARRIOR)){
             CharacterFactory<Warrior> factory = new CharacterFactory<>(Warrior.class);
             PopulationGenerator<Warrior> populationGenerator = new PopulationGenerator<>();
             firstPopulation = populationGenerator.generateFirstPopulation(populationSize, random, itemsProvider, factory);
         }
-        else if(characterClass.equals("ARCHER")){
+        else if(characterClass.equals(ARCHER)){
             CharacterFactory<Archer> factory = new CharacterFactory<>(Archer.class);
             PopulationGenerator<Archer> populationGenerator = new PopulationGenerator<>();
             firstPopulation = populationGenerator.generateFirstPopulation(populationSize, random, itemsProvider, factory);
         }
-        else if(characterClass.equals("DEFENDER")){
+        else if(characterClass.equals(DEFENDER)){
             CharacterFactory<Defender> factory = new CharacterFactory<>(Defender.class);
             PopulationGenerator<Defender> populationGenerator = new PopulationGenerator<>();
             firstPopulation = populationGenerator.generateFirstPopulation(populationSize, random, itemsProvider, factory);
         }
-        else if(characterClass.equals("ROGUE")){
+        else if(characterClass.equals(ROGUE)){
             CharacterFactory<Rogue> factory = new CharacterFactory<>(Rogue.class);
             PopulationGenerator<Rogue> populationGenerator = new PopulationGenerator<>();
             firstPopulation = populationGenerator.generateFirstPopulation(populationSize, random, itemsProvider, factory);
@@ -74,7 +76,20 @@ public class Main {
         else {
             System.out.println("Invalid character class. Possible options: WARRIOR, ARCHER, DEFENDER, ROGUE");
         }
-        return new GeneticsAlgorithm(random, populationSize, itemsProvider, selectionMethod1, selectionMethod2, crossover, mutation, implementation, cutCondition, implementation.getK(), firstPopulation);
+        return new GeneticsAlgorithm(
+                random,
+                populationSize,
+                itemsProvider,
+                selectionMethod1,
+                selectionMethod2,
+                crossover,
+                mutation,
+                implementation,
+                cutCondition,
+                implementation.getK(),
+                firstPopulation,
+                characterClass
+        );
     }
 
 }

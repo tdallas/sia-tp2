@@ -8,6 +8,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CharacterFactory<T extends Character> {
 
+    public static final String WARRIOR ="WARRIOR";
+    public static final String ARCHER ="ARCHER";
+    public static final String DEFENDER ="DEFENDER";
+    public static final String ROGUE="ROGUE";
+
     final Class<T> tClass;
 
     public T characterSupplier(final Boots boots,

@@ -1,9 +1,11 @@
 package characters;
 
+import alleles.Allele;
 import alleles.Height;
 import alleles.items.*;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -111,5 +113,12 @@ public abstract class Character implements Comparable<Character> {
         } else {
             return 0;
         }
+    }
+
+    public List<Allele> getAlleles() {
+        List<Allele> alleles = new ArrayList<>();
+        alleles.add(height);
+        alleles.addAll(getItems());
+        return alleles;
     }
 }
