@@ -9,9 +9,11 @@ import mutations.Mutation;
 import selections.SelectionMethod;
 
 import java.util.List;
+import java.util.Random;
 
 public class GeneticsAlgorithm {
     private List<Character> currentPopulation;
+    private final Random random;
     private final int populationSize;
     private final Implementation implementation;
     private final ItemsProvider itemsProvider;
@@ -23,8 +25,8 @@ public class GeneticsAlgorithm {
     private final SelectionMethod repetitionMethod2;
     private final CutCondition cutCondition;
 
-    public GeneticsAlgorithm(List<Character> currentPopulation, int populationSize, Implementation implementation, ItemsProvider itemsProvider, Crossover crossover, Mutation mutation, SelectionMethod selectionMethod1, SelectionMethod selectionMethod2, SelectionMethod repetitionMethod1, SelectionMethod repetitionMethod2, CutCondition cutCondition) {
-        this.currentPopulation = currentPopulation;
+    public GeneticsAlgorithm(Random random, int populationSize, Implementation implementation, ItemsProvider itemsProvider, Crossover crossover, Mutation mutation, SelectionMethod selectionMethod1, SelectionMethod selectionMethod2, SelectionMethod repetitionMethod1, SelectionMethod repetitionMethod2, CutCondition cutCondition) {
+        this.random = random;
         this.populationSize = populationSize;
         this.implementation = implementation;
         this.itemsProvider = itemsProvider;
@@ -35,5 +37,6 @@ public class GeneticsAlgorithm {
         this.repetitionMethod1 = repetitionMethod1;
         this.repetitionMethod2 = repetitionMethod2;
         this.cutCondition = cutCondition;
+//        this.currentPopulation = generateFirstPopulation();
     }
 }
