@@ -8,8 +8,8 @@ import alleles.Allele;
 @AllArgsConstructor
 public class ItemsProvider {
 
-    public static final int MAX_ITEMS = 10000;
 
+    public final int MAX_ITEMS;
     private final BootsProvider bootsProvider;
     private final ChestProvider chestProvider;
     private final GlovesProvider glovesProvider;
@@ -34,6 +34,10 @@ public class ItemsProvider {
         } else {
             return getWeapon(position);
         }
+    }
+
+    public int getMAX_ITEMS() {
+        return MAX_ITEMS;
     }
 
 }

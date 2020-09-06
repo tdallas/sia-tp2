@@ -25,6 +25,11 @@ public class Height implements Allele {
     }
 
     @Override
+    public String toString() {
+        return "Height: " + value;
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(value);
     }

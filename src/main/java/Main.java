@@ -21,7 +21,7 @@ public class Main {
         final ChestProvider chestProvider = new ChestProvider(itemParser.parseItem(Chest.class));
         final HelmetProvider helmetProvider = new HelmetProvider(itemParser.parseItem(Helmet.class));
 
-        ItemsProvider itemsProvider = new ItemsProvider(bootsProvider, chestProvider, glovesProvider, weaponProvider, helmetProvider);
+        ItemsProvider itemsProvider = new ItemsProvider(10000, bootsProvider, chestProvider, glovesProvider, weaponProvider, helmetProvider);
     }
 
     private static Configurations getConfigsFromProperties(final Properties properties) {

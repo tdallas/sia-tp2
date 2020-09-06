@@ -41,6 +41,11 @@ public abstract class Item implements Allele {
         return Objects.hash(id, agility, expertise, resistance, strength, vitality);
     }
 
+    @Override
+    public String toString() {
+        return getClass() + ": Id=" + id;
+    }
+
     public double getAgility() {
         return agility;
     }
