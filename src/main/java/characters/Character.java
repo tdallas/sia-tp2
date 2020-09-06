@@ -2,20 +2,21 @@ package characters;
 
 import alleles.Height;
 import alleles.items.*;
-import lombok.Setter;
+import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-@Setter
+@Getter
 public abstract class Character implements Comparable<Character>{
-    private Boots boots;
-    private Chest chest;
-    private Gloves gloves;
-    private Helmet helmet;
-    private Weapon weapon;
-    private Height height;
+    private final Boots boots;
+    private final Chest chest;
+    private final Gloves gloves;
+    private final Helmet helmet;
+    private final Weapon weapon;
+    private final Height height;
+    private final List<Item> items;
 
     public Character(final Boots boots, final Chest chest, final Gloves gloves, final Helmet helmet, final Weapon weapon, final double height) {
         this.boots = boots;
@@ -24,6 +25,7 @@ public abstract class Character implements Comparable<Character>{
         this.helmet = helmet;
         this.weapon = weapon;
         this.height = new Height(height);
+        this.items = Arrays.asList(boots, chest, gloves, helmet, weapon);
     }
 
     public double getHeight() {
@@ -38,10 +40,6 @@ public abstract class Character implements Comparable<Character>{
     protected double calculateDEM() {
         final double midTerm = (2.5 * getHeight() - 4.16);
         return 1.9 + Math.pow(midTerm, 4) - Math.pow(midTerm, 2) - (3 * getHeight() / 10);
-    }
-
-    public List<Item> getItems() {
-        return Arrays.asList(boots, chest, gloves, helmet, weapon);
     }
 
     protected double calculateStrength(final List<Item> items) {
@@ -83,26 +81,6 @@ public abstract class Character implements Comparable<Character>{
     }
 
     public abstract double getPerformance();
-
-    public Boots getBoots() {
-        return boots;
-    }
-
-    public Chest getChest() {
-        return chest;
-    }
-
-    public Gloves getGloves() {
-        return gloves;
-    }
-
-    public Helmet getHelmet() {
-        return helmet;
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
-    }
 
     @Override
     public boolean equals(Object o) {

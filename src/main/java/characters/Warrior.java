@@ -2,17 +2,16 @@ package characters;
 
 import alleles.items.*;
 
-import java.util.List;
-
 public class Warrior extends Character {
+    private final double performance;
 
-    public Warrior(Boots boots, Chest chest, Gloves gloves, Helmet helmet, Weapon weapon, double height) {
+    public Warrior(final Boots boots, final Chest chest, final Gloves gloves, final Helmet helmet, final Weapon weapon, final double height) {
         super(boots, chest, gloves, helmet, weapon, height);
+        this.performance = 0.6 * getAttack(getItems()) + 0.6 * getDefense(getItems());
     }
 
     @Override
     public double getPerformance() {
-        List<Item> items = getItems();
-        return 0.6 * getAttack(items) + 0.6 * getDefense(items);
+        return performance;
     }
 }
