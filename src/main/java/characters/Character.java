@@ -27,11 +27,6 @@ public abstract class Character implements Comparable<Character>{
         this.height = new Height(height);
     }
 
-    // We assume height is already validated
-    public Character(final double height) {
-        this.height = new Height(height);
-    }
-
     public double getHeight() {
         return height.getValue();
     }

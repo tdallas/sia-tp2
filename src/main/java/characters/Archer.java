@@ -10,10 +10,6 @@ public class Archer extends Character {
         super(boots, chest, gloves, helmet, weapon, height);
     }
 
-    public Archer(double height) {
-        super(height);
-    }
-
     @Override
     public double getPerformance() {
         List<Item> items = getItems();

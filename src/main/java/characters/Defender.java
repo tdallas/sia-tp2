@@ -10,10 +10,6 @@ public class Defender extends Character {
         super(boots, chest, gloves, helmet, weapon, height);
     }
 
-    public Defender(double height) {
-        super(height);
-    }
-
     @Override
     public double getPerformance() {
         List<Item> items = getItems();
