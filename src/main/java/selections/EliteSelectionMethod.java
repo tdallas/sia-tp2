@@ -5,7 +5,7 @@ import characters.Character;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EliteSelectionMethod extends SelectionMethod{
+public class EliteSelectionMethod extends SelectionMethod {
 
     public EliteSelectionMethod(double percentage) {
         super(percentage);
@@ -15,7 +15,7 @@ public class EliteSelectionMethod extends SelectionMethod{
     public List<Character> select(final List<Character> population, final int k) {
         List<Character> selectedList = new ArrayList<>();
 
-        population.sort((c1, c2) -> (int)(c2.getPerformance() - c1.getPerformance()));
+        population.sort((c1, c2) -> (int) (c2.getPerformance() - c1.getPerformance()));
 
         for (int i = 0; i < k; i++)
             selectedList.add(population.get(i));

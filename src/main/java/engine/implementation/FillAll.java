@@ -5,8 +5,11 @@ import selections.SelectionMethod;
 
 import java.util.List;
 
-public class FillAll extends Implementation{
-    public FillAll(final SelectionMethod replacementMethod1, final SelectionMethod replacementMethod2, final int populationSize, final int k) {
+public class FillAll extends Implementation {
+    public FillAll(final SelectionMethod replacementMethod1,
+                   final SelectionMethod replacementMethod2,
+                   final int populationSize,
+                   final int k) {
         super(replacementMethod1, replacementMethod2, populationSize, k);
     }
 

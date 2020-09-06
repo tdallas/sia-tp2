@@ -2,7 +2,7 @@ package selections;
 
 import java.util.Random;
 
-public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
+public class BoltzmannSelectionMethod extends RouletteSelectionMethod {
     private static final double t0 = 10;
     private static final double tC = 1;
 
@@ -20,7 +20,7 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
         double[] boltzmannFitness = new double[size];
         double[] relativeFitness = new double[size];
 
-        double T = tC + (t0 - tC)*Math.pow(Math.E, -iterations);
+        double T = tC + (t0 - tC) * Math.pow(Math.E, -iterations);
         iterations++;
         double fitnessSum = 0, average = 0;
         double fitness;

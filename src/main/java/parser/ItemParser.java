@@ -1,8 +1,8 @@
 package parser;
 
+import alleles.items.*;
 import com.univocity.parsers.tsv.TsvParser;
 import com.univocity.parsers.tsv.TsvParserSettings;
-import alleles.items.*;
 
 import java.io.File;
 import java.util.ArrayList;

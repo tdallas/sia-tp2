@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-public class DeterministicTournamentSelection extends TournamentSelectionMethod{
+public class DeterministicTournamentSelection extends TournamentSelectionMethod {
     public DeterministicTournamentSelection(double percentage, final Random rand, final int m) {
         super(percentage, rand, m);
     }

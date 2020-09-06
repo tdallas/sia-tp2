@@ -4,7 +4,7 @@ import characters.Character;
 
 import java.util.List;
 
-public class ContentCutCondition extends CutCondition{
+public class ContentCutCondition extends CutCondition {
     private final int maxGenerations;
     private Character lastBestCharacter;
     private int generations;
@@ -17,11 +17,10 @@ public class ContentCutCondition extends CutCondition{
 
     @Override
     public boolean cutReached(List<Character> population, Character bestCharacter) {
-        if(lastBestCharacter == null  || !lastBestCharacter.equals(bestCharacter)){
+        if (lastBestCharacter == null || !lastBestCharacter.equals(bestCharacter)) {
             lastBestCharacter = bestCharacter;
             generations = 1;
-        }
-        else{
+        } else {
             generations++;
             return generations >= maxGenerations;
         }

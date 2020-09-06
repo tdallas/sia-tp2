@@ -2,8 +2,6 @@ package characters;
 
 import alleles.items.*;
 
-import java.util.List;
-
 public class Defender extends Character {
     private final double performance;
 

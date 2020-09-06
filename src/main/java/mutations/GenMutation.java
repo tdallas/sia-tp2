@@ -3,14 +3,13 @@ package mutations;
 import ItemProvider.ItemsProvider;
 import alleles.Allele;
 import alleles.AlleleType;
-import alleles.Height;
 import lombok.Getter;
 
 import java.util.List;
 import java.util.Random;
 
 @Getter
-public class GenMutation extends Mutation{
+public class GenMutation extends Mutation {
 
     public GenMutation(Random random) {
         super(random);

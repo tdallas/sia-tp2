@@ -1,14 +1,15 @@
 package selections;
 
+import alleles.items.*;
 import characters.Archer;
 import characters.Character;
-import alleles.items.*;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+
 public class EliteSelectionMethodTest {
 
     private final Weapon weapon = new Weapon(1, 1d, 1d, 1d, 1d, 1d);

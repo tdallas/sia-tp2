@@ -4,7 +4,7 @@ import characters.Character;
 
 import java.util.List;
 
-public class TimeCutCondition extends CutCondition{
+public class TimeCutCondition extends CutCondition {
     private final long finishTime;
 
     public TimeCutCondition(long timeMillis) {

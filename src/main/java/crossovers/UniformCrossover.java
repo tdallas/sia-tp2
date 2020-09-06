@@ -17,7 +17,7 @@ public class UniformCrossover extends Crossover {
     public List<List<Allele>> crossover(List<Allele> from, List<Allele> to) {
         final List<Allele> firstAlleles = new ArrayList<>();
         final List<Allele> secondAlleles = new ArrayList<>();
-        for (int i = 0 ; i < MAX_ALLELES ; i++) {
+        for (int i = 0; i < MAX_ALLELES; i++) {
             if (getRandom().nextInt() % 2 == 0) {
                 firstAlleles.add(from.get(i));
                 secondAlleles.add(to.get(i));

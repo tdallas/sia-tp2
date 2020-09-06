@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Random;
 
 public class GeneticsAlgorithm {
-    private List<Character> currentPopulation;
     private final Random random;
     private final int populationSize;
     private final Implementation implementation;
@@ -24,6 +23,7 @@ public class GeneticsAlgorithm {
     private final SelectionMethod repetitionMethod1;
     private final SelectionMethod repetitionMethod2;
     private final CutCondition cutCondition;
+    private List<Character> currentPopulation;
 
     public GeneticsAlgorithm(Random random, int populationSize, Implementation implementation, ItemsProvider itemsProvider, Crossover crossover, Mutation mutation, SelectionMethod selectionMethod1, SelectionMethod selectionMethod2, SelectionMethod repetitionMethod1, SelectionMethod repetitionMethod2, CutCondition cutCondition) {
         this.random = random;

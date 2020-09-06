@@ -16,7 +16,7 @@ public class AnnularCrossover extends Crossover {
     @Override
     public List<List<Allele>> crossover(final List<Allele> from, final List<Allele> to) {
         final int secondCrossoverPoint = getCrossoverPoint();
-        int firstCrossoverPoint = (int) Math.ceil((double) secondCrossoverPoint/2);
+        int firstCrossoverPoint = (int) Math.ceil((double) secondCrossoverPoint / 2);
         final List<Allele> firstChildAlleles = getAlleles(from, to, firstCrossoverPoint, secondCrossoverPoint);
         final List<Allele> secondChildAlleles = getAlleles(to, from, firstCrossoverPoint, secondCrossoverPoint);
         return Arrays.asList(firstChildAlleles, secondChildAlleles);

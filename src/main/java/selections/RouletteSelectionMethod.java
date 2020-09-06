@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RouletteSelectionMethod extends SelectionMethod{
+public class RouletteSelectionMethod extends SelectionMethod {
     private final Random rand;
 
 
-    public RouletteSelectionMethod(final double percentage, final Random rand){
+    public RouletteSelectionMethod(final double percentage, final Random rand) {
         super(percentage);
         this.rand = rand;
     }

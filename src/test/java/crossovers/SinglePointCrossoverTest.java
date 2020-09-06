@@ -1,8 +1,8 @@
 package crossovers;
 
+import alleles.Allele;
 import alleles.Height;
 import alleles.items.*;
-import alleles.Allele;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

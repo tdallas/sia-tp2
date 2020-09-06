@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Getter
-public abstract class Character implements Comparable<Character>{
+public abstract class Character implements Comparable<Character> {
     private final Boots boots;
     private final Chest chest;
     private final Gloves gloves;

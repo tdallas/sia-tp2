@@ -1,9 +1,9 @@
 package ItemProvider;
 
 
+import alleles.Allele;
 import alleles.items.*;
 import lombok.AllArgsConstructor;
-import alleles.Allele;
 
 @AllArgsConstructor
 public class ItemsProvider {
@@ -16,11 +16,25 @@ public class ItemsProvider {
     private final WeaponProvider weaponProvider;
     private final HelmetProvider helmetProvider;
 
-    private Gloves getGloves(final int position) { return glovesProvider.provideItem(position);}
-    private Boots getBoots(final int position) { return bootsProvider.provideItem(position);}
-    private Helmet getHelmet(final int position) { return helmetProvider.provideItem(position);}
-    private Chest getChest(final int position) { return chestProvider.provideItem(position);}
-    private Weapon getWeapon(final int position) { return weaponProvider.provideItem(position);}
+    private Gloves getGloves(final int position) {
+        return glovesProvider.provideItem(position);
+    }
+
+    private Boots getBoots(final int position) {
+        return bootsProvider.provideItem(position);
+    }
+
+    private Helmet getHelmet(final int position) {
+        return helmetProvider.provideItem(position);
+    }
+
+    private Chest getChest(final int position) {
+        return chestProvider.provideItem(position);
+    }
+
+    private Weapon getWeapon(final int position) {
+        return weaponProvider.provideItem(position);
+    }
 
     public Item getItemToReplace(final Allele item, final int position) {
         if (item instanceof Gloves) {
@@ -29,7 +43,7 @@ public class ItemsProvider {
             return getChest(position);
         } else if (item instanceof Boots) {
             return getBoots(position);
-        } else if (item instanceof  Helmet) {
+        } else if (item instanceof Helmet) {
             return getHelmet(position);
         } else {
             return getWeapon(position);

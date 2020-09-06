@@ -4,7 +4,7 @@ import characters.Character;
 
 import java.util.List;
 
-public class AcceptableCutCondition extends CutCondition{
+public class AcceptableCutCondition extends CutCondition {
     private final double acceptableFitness;
 
     public AcceptableCutCondition(double acceptableFitness) {

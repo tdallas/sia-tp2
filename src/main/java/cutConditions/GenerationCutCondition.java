@@ -4,7 +4,7 @@ import characters.Character;
 
 import java.util.List;
 
-public class GenerationCutCondition extends CutCondition{
+public class GenerationCutCondition extends CutCondition {
     private final int maxGenerations;
     private int generation;
 

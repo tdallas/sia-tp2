@@ -34,8 +34,8 @@ public abstract class Implementation {
         return k;
     }
 
-    protected List<Character> selectFromMethods(List<Character> population, int n){
-        int kMethod1 = (int)(replacementMethod1.getPercentage()*n);
+    protected List<Character> selectFromMethods(List<Character> population, int n) {
+        int kMethod1 = (int) (replacementMethod1.getPercentage() * n);
         int KMethod2 = n - kMethod1;
 
         List<Character> selectedFromMethod1 = replacementMethod1.select(population, kMethod1);

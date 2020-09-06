@@ -5,8 +5,8 @@ import characters.Character;
 import java.util.List;
 
 public abstract class SelectionMethod {
-    private List<Character> population;
     private final double percentage;
+    private List<Character> population;
 
     public SelectionMethod(double percentage) {
         this.percentage = percentage;
