@@ -59,6 +59,5 @@ public class GenMutationTest {
         assertEquals("Gloves should have mutated", 10, ((Item) newAlleles.get(3)).getId());
         assertEquals("Helmet should remain the same", 1, ((Item) newAlleles.get(4)).getId());
         assertEquals("Weapon should remain the same", 1, ((Item) newAlleles.get(5)).getId());
-
     }
 }
