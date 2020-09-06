@@ -14,9 +14,9 @@ public class LimitedMultiGenMutation extends GenMutation {
 
     private final double probability;
 
-    public LimitedMultiGenMutation(final double probability, final Random random, double probability1) {
+    public LimitedMultiGenMutation(final double probability, final Random random) {
         super(random);
-        this.probability = probability1;
+        this.probability = probability;
     }
 
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
