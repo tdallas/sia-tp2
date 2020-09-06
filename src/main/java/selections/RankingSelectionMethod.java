@@ -13,16 +13,21 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
     @Override
     double[] calculateRelativeFitness() {
         double[] relativeFitness = new double[getPopulation().size()];
-        double fitnessSum = 0;
+        double n, fitnessSum = 0;
 
-        for (Character c : getPopulation()) {
-            fitnessSum += c.getPerformance();
-        }
-
-        getPopulation().sort(Collections.reverseOrder());
+        Collections.sort(getPopulation());
+        n = getPopulation().get(getPopulation().size() - 1).getPerformance();
 
         for (int i = 0; i < getPopulation().size(); i++) {
-            relativeFitness[i] = (fitnessSum - getPopulation().get(i).getPerformance()) / fitnessSum;
+            relativeFitness[i] = (n - getPopulation().get(i).getPerformance()) / n;
+        }
+
+        for (int i = 0; i < getPopulation().size(); i++) {
+            fitnessSum += relativeFitness[i];
+        }
+
+        for (int i = 0; i < getPopulation().size(); i++) {
+            relativeFitness[i] = relativeFitness[i] / fitnessSum;
         }
 
         return relativeFitness;
