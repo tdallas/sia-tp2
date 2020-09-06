@@ -11,7 +11,7 @@ public class Main {
     public static void main(final String[] args) throws IOException {
         PropertiesParser propertiesParser = new PropertiesParser();
         Properties properties = propertiesParser.loadProperties();
-        ItemParser itemParser = new ItemParser(properties);
+        ItemParser itemParser = new ItemParser(properties, 10000);
         final WeaponProvider weaponProvider = new WeaponProvider(itemParser.parseItem(Weapon.class));
         final GlovesProvider glovesProvider = new GlovesProvider(itemParser.parseItem(Gloves.class));
         final BootsProvider bootsProvider = new BootsProvider(itemParser.parseItem(Boots.class));

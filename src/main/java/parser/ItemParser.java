@@ -17,17 +17,19 @@ public class ItemParser {
     private final String helmetPath;
     private final String glovesPath;
     private final String chestPath;
+    private final int itemsToParse;
 
-    public ItemParser(final Properties properties) {
+    public ItemParser(final Properties properties, final int itemsToParse) {
         this.weaponPath = (String) properties.get("weaponPath");
         this.bootPath = (String) properties.get("bootPath");
         this.helmetPath = (String) properties.get("helmetPath");
         this.glovesPath = (String) properties.get("glovesPath");
         this.chestPath = (String) properties.get("chestPath");
+        this.itemsToParse = itemsToParse;
     }
 
     private Map<Class<? extends Item>, String> getClassToPath() {
-      return Map.of(
+        return Map.of(
                 Weapon.class, weaponPath,
                 Boots.class, bootPath,
                 Helmet.class, helmetPath,
@@ -43,7 +45,13 @@ public class ItemParser {
         // csvHeader:   id      Fu      Ag      Ex      Re      Vi
         TsvParser parser = new TsvParser(parserSettings);
         List<T> items = new ArrayList<>();
-        parser.parseAll(weaponFile).forEach(line -> items.add(getInstance(line, itemClass)));
+        List<String[]> lines = parser.parseAll(weaponFile);
+        for (String[] line : lines) {
+            if (items.size() > itemsToParse) {
+                return items;
+            }
+            items.add(getInstance(line, itemClass));
+        }
         return items;
     }
 
