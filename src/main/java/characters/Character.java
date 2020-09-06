@@ -115,6 +115,14 @@ public abstract class Character implements Comparable<Character> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Height: " + height.getValue() + " | Weapon: " + weapon.getId() +
+                " | Chest: " + chest.getId() + " | Gloves: " + gloves.getId() +
+                " | Boots: " + boots.getId() + " | Helmet: " + helmet.getId() +
+                " | Fitness: " + getPerformance();
+    }
+
     public List<Allele> getAlleles() {
         List<Allele> alleles = new ArrayList<>();
         alleles.add(height);

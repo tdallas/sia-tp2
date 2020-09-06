@@ -75,6 +75,7 @@ public class GeneticsAlgorithm {
 
             bestCharacter = findBestCharacter(currentPopulation);
         }
+        System.out.println(bestCharacter);
     }
 
     private List<Character> selectFromMethods(List<Character> population, int n) {
