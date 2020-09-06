@@ -21,5 +21,7 @@ public class Configurations {
 
     private final long randomSeed;
     private final int populationSize;
+    private final String characterClass;
+    private final String implementation;
 
 }

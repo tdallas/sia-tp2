@@ -69,7 +69,9 @@ public class Main {
                 cutCondition,
                 (String) properties.get(ConfigKeys.CROSSOVER_METHOD),
                 Long.parseLong((String) properties.get(ConfigKeys.RANDOM_SEED)),
-                Integer.parseInt((String) properties.get(ConfigKeys.POPULATION_SIZE))
+                Integer.parseInt((String) properties.get(ConfigKeys.POPULATION_SIZE)),
+                (String) properties.get(ConfigKeys.CLASS),
+                (String) properties.get(ConfigKeys.IMPLEMENTATION_MODE)
         );
     }
 
