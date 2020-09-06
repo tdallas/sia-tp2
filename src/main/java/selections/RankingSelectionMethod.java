@@ -21,8 +21,9 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
 
         getPopulation().sort(Collections.reverseOrder());
 
-        for (int i = 0; i < getPopulation().size(); i++)
+        for (int i = 0; i < getPopulation().size(); i++) {
             relativeFitness[i] = (fitnessSum - getPopulation().get(i).getPerformance()) / fitnessSum;
+        }
 
         return relativeFitness;
     }
