@@ -1,6 +1,6 @@
 package ItemProvider;
 
-import items.Item;
+import alleles.items.Item;
 
 public abstract class ItemProvider<T extends Item> {
 

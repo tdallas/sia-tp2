@@ -1,7 +1,9 @@
 package mutations;
 
 import ItemProvider.ItemsProvider;
-import atributes.Height;
+import alleles.Allele;
+import alleles.AlleleType;
+import alleles.Height;
 import lombok.Getter;
 
 import java.util.List;
@@ -22,7 +24,7 @@ public class GenMutation {
         Allele newAllele = null;
         int newRandomPosition = random.nextInt(MAX_ITEMS);
         if (position == AlleleType.HEIGHT) {
-            newAllele = new Height(1.3 + random.nextDouble() * (2 - 1.3));
+            newAllele = new Height(Height.MIN_HEIGHT + random.nextDouble() * (Height.MAX_HEIGHT - Height.MIN_HEIGHT));
         } else {
             newAllele = itemsProvider.getItemToReplace(alleles.get(position.ordinal()), newRandomPosition);
         }

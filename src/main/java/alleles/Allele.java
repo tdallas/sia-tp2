@@ -1,4 +1,4 @@
-package mutations;
+package alleles;
 
 public interface Allele {
 }

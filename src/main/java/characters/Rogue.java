@@ -1,6 +1,6 @@
 package characters;
 
-import items.*;
+import alleles.items.*;
 
 import java.util.List;
 

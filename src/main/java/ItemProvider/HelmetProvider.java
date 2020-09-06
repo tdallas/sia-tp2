@@ -1,6 +1,6 @@
 package ItemProvider;
 
-import items.Helmet;
+import alleles.items.Helmet;
 import lombok.AllArgsConstructor;
 
 import java.util.List;

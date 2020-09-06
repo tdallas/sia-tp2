@@ -1,8 +1,8 @@
 package crossovers;
 
-import atributes.Height;
-import items.*;
-import mutations.Allele;
+import alleles.Height;
+import alleles.items.*;
+import alleles.Allele;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -50,7 +50,7 @@ public class SinglePointCrossoverTest {
             if (i == 0) {
                 assertEquals("Height should be from dad", 1.6d, ((Height) result.get(0).get(i)).getValue(), 0);
             } else if (i <= 2) {
-                assertEquals("First two items alleles should be from dad", 1, ((Item) result.get(0).get(i)).getId());
+                assertEquals("First two alleles.items alleles should be from dad", 1, ((Item) result.get(0).get(i)).getId());
             } else {
                 assertEquals("The last alleles should be from mom", 2, ((Item) result.get(0).get(i)).getId());
             }
@@ -59,7 +59,7 @@ public class SinglePointCrossoverTest {
             if (i == 0) {
                 assertEquals("Height should be from mom", 1.5d, ((Height) result.get(1).get(i)).getValue(), 0);
             } else if (i <= 2) {
-                assertEquals("First two items alleles should be from mom", 2, ((Item) result.get(1).get(i)).getId());
+                assertEquals("First two alleles.items alleles should be from mom", 2, ((Item) result.get(1).get(i)).getId());
             } else {
                 assertEquals("The last alleles should be from dad", 1, ((Item) result.get(1).get(i)).getId());
             }

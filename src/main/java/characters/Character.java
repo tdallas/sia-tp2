@@ -1,7 +1,7 @@
 package characters;
 
-import atributes.Height;
-import items.*;
+import alleles.Height;
+import alleles.items.*;
 import lombok.Setter;
 
 import java.util.Arrays;

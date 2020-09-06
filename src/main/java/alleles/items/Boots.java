@@ -1,11 +1,8 @@
-package items;
-
-import atributes.*;
+package alleles.items;
 
 public class Boots extends Item {
     public Boots(final long id, final double agility, final double expertise,
                   final double resistance, final double strength, final double vitality) {
-        super(id, new Agility(agility), new Expertise(expertise), new Resistance(resistance),
-                new Strength(strength), new Vitality(vitality));
+        super(id, agility, expertise, resistance, strength, vitality);
     }
 }

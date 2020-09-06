@@ -1,6 +1,6 @@
 package characters;
 
-import items.*;
+import alleles.items.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

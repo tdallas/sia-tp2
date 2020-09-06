@@ -2,7 +2,7 @@ package parser;
 
 import com.univocity.parsers.tsv.TsvParser;
 import com.univocity.parsers.tsv.TsvParserSettings;
-import items.*;
+import alleles.items.*;
 
 import java.io.File;
 import java.util.ArrayList;

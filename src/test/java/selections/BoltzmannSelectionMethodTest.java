@@ -2,7 +2,7 @@ package selections;
 
 import characters.Archer;
 import characters.Character;
-import items.*;
+import alleles.items.*;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,5 +1,5 @@
 import ItemProvider.*;
-import items.*;
+import alleles.items.*;
 import parser.ItemParser;
 import parser.PropertiesParser;
 

@@ -1,9 +1,9 @@
 package ItemProvider;
 
 
-import items.*;
+import alleles.items.*;
 import lombok.AllArgsConstructor;
-import mutations.Allele;
+import alleles.Allele;
 
 @AllArgsConstructor
 public class ItemsProvider {

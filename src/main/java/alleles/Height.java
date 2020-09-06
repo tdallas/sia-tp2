@@ -1,15 +1,18 @@
-package atributes;
-
+package alleles;
 
 import lombok.Getter;
 
 import java.util.Objects;
 
 @Getter
-public abstract class Attribute {
+public class Height implements Allele {
+
+    public static final double MAX_HEIGHT = 2.0;
+    public static final double MIN_HEIGHT = 1.3;
+
     private final double value;
 
-    public Attribute(final double value) {
+    public Height(double value) {
         this.value = value;
     }
 
@@ -17,8 +20,8 @@ public abstract class Attribute {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Attribute attribute = (Attribute) o;
-        return Double.compare(attribute.value, value) == 0;
+        Height height = (Height) o;
+        return Double.compare(height.value, value) == 0;
     }
 
     @Override

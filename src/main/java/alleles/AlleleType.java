@@ -1,4 +1,4 @@
-package mutations;
+package alleles;
 
 public enum AlleleType {
     HEIGHT, BOOTS, CHEST, GLOVES, HELMET, WEAPON;

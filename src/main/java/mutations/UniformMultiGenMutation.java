@@ -1,6 +1,8 @@
 package mutations;
 
 import ItemProvider.ItemsProvider;
+import alleles.Allele;
+import alleles.AlleleType;
 
 import java.util.List;
 import java.util.Random;
