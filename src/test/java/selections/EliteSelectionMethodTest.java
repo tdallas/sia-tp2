@@ -45,7 +45,7 @@ public class EliteSelectionMethodTest {
 
 
     @Test
-    public void singlePointCrossoverAtPosition2Test() {
+    public void eliteSelectionTest() {
         EliteSelectionMethod eliteSelectionMethod = new EliteSelectionMethod(1);
         List<Character> population = Arrays.asList(c1, c2, c3, c4);
         List<Character> elite = eliteSelectionMethod.select(population, 4);

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BoltzmannSelectionMethodTest {
     private final Weapon weapon = new Weapon(1, 1d, 1d, 1d, 1d, 1d);
@@ -28,7 +29,7 @@ public class BoltzmannSelectionMethodTest {
 
     private final Archer c2 = new Archer(boots2, chest2, gloves2, helmet2, weapon2, 1.5);
 
-    private final Weapon weapon3 = new Weapon(3, 3d, 3d, 3d, 3d, 3d);
+    private final Weapon weapon3 = new Weapon(3, 4d, 4d, 4d, 4d, 4d);
     private final Chest chest3 = new Chest(3, 3d, 3d, 3d, 3d, 3d);
     private final Helmet helmet3 = new Helmet(3, 3d, 3d, 3d, 3d, 3d);
     private final Gloves gloves3 = new Gloves(3, 3d, 3d, 3d, 3d, 3d);
@@ -36,7 +37,7 @@ public class BoltzmannSelectionMethodTest {
 
     private final Archer c3 = new Archer(boots3, chest3, gloves3, helmet3, weapon3, 1.5);
 
-    private final Weapon weapon4 = new Weapon(4, 4d, 4d, 4d, 4d, 4d);
+    private final Weapon weapon4 = new Weapon(4, 3d, 3d, 3d, 3d, 3d);
     private final Chest chest4 = new Chest(4, 4d, 4d, 4d, 4d, 4d);
     private final Helmet helmet4 = new Helmet(4, 4d, 4d, 4d, 4d, 4d);
     private final Gloves gloves4 = new Gloves(4, 4d, 4d, 4d, 4d, 4d);
@@ -46,10 +47,11 @@ public class BoltzmannSelectionMethodTest {
 
 
     @Test
-    public void singlePointCrossoverAtPosition2Test() {
-        BoltzmannSelectionMethod boltzmannSelectionMethod = new BoltzmannSelectionMethod(1, new Random(), 10);
+    public void boltzmannSelectionTest() {
+        BoltzmannSelectionMethod boltzmannSelectionMethod = new BoltzmannSelectionMethod(1, new Random(1), 10);
         List<Character> population = Arrays.asList(c1, c2, c3, c4);
-        List<Character> selected = boltzmannSelectionMethod.select(population, 2);
-        System.out.println("asd");
+        List<Character> selected = boltzmannSelectionMethod.select(population, 3);
+        assertTrue(selected.contains(c4));
+        assertTrue(selected.contains(c3));
     }
 }
