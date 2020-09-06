@@ -1,17 +1,17 @@
 package characters;
 
 import items.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 
-@Getter
-@Setter
 public class Warrior extends Character {
+
+    private double performance;
 
     public Warrior(Boots boots, Chest chest, Gloves gloves, Helmet helmet, Weapon weapon, double height) {
         super(boots, chest, gloves, helmet, weapon, height);
+        List<Item> items = getItems();
+        this.performance = 0.6 * getAttack(items) + 0.6 * getDefense(items);
     }
 
     public Warrior(double height) {
@@ -19,7 +19,7 @@ public class Warrior extends Character {
     }
 
     @Override
-    public double calculatePerformance(final List<Item> items) {
-        return 0.6 * getAttack(items) + 0.6 * getDefense(items);
+    public double getPerformance() {
+        return performance;
     }
 }

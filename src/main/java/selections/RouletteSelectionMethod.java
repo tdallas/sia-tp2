@@ -59,11 +59,11 @@ public class RouletteSelectionMethod extends SelectionMethod{
         int fitnessSum = 0;
 
         for (Character c : getPopulation()) {
-            fitnessSum += c.calculatePerformance(c.getItems());
+            fitnessSum += c.getPerformance();
         }
 
         for (int i = 0; i < getPopulation().size(); i++)
-            relativeFitness[i] = (getPopulation().get(i).calculatePerformance(getPopulation().get(i).getItems())) / fitnessSum;
+            relativeFitness[i] = (getPopulation().get(i).getPerformance()) / fitnessSum;
 
         return relativeFitness;
     }

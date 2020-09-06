@@ -7,10 +7,11 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
-public class EliteSelectionMethodTest {
 
+public class BoltzmannSelectionMethodTest {
     private final Weapon weapon = new Weapon(1, 1d, 1d, 1d, 1d, 1d);
     private final Chest chest = new Chest(1, 1d, 1d, 1d, 1d, 1d);
     private final Helmet helmet = new Helmet(1, 1d, 1d, 1d, 1d, 1d);
@@ -46,13 +47,9 @@ public class EliteSelectionMethodTest {
 
     @Test
     public void singlePointCrossoverAtPosition2Test() {
-        EliteSelectionMethod eliteSelectionMethod = new EliteSelectionMethod(1);
+        BoltzmannSelectionMethod boltzmannSelectionMethod = new BoltzmannSelectionMethod(1, new Random(), 10);
         List<Character> population = Arrays.asList(c1, c2, c3, c4);
-        List<Character> elite = eliteSelectionMethod.select(population, 4);
-        assertEquals(elite.get(0), c4);
-        assertEquals(elite.get(1), c3);
-        assertEquals(elite.get(2), c2);
-        assertEquals(elite.get(3), c1);
-        assertEquals(elite.size(), 4);
+        List<Character> selected = boltzmannSelectionMethod.select(population, 2);
+        System.out.println("asd");
     }
 }
