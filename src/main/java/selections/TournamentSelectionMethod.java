@@ -6,14 +6,11 @@ import java.util.*;
 
 public abstract class TournamentSelectionMethod extends SelectionMethod{
     private final Random rand;
-    private int m;
+    private final int m;
 
-    public TournamentSelectionMethod(double percentage, final Random rand){
+    public TournamentSelectionMethod(double percentage, final Random rand, int m){
         super(percentage);
         this.rand = rand;
-    }
-
-    public void setM(int m) {
         this.m = m;
     }
 
@@ -21,40 +18,31 @@ public abstract class TournamentSelectionMethod extends SelectionMethod{
         return rand;
     }
 
-    Character getFittestChromosomeFromRandomSubset(final List<Character> uniqueChromosomes) {
-        SortedSet<Character> randoms = createRandomSubset(uniqueChromosomes);
+    Character getFittest(final List<Character> populationNoRepeated) {
+        SortedSet<Character> randoms = createRandomSubset(populationNoRepeated);
         return randoms.last();
     }
 
-    Character getLeastFitChromosomeFromRandomSubset(final List<Character> uniqueChromosomes) {
-        SortedSet<Character> randoms = createRandomSubset(uniqueChromosomes);
+    Character getLeastFit(final List<Character> populationNoRepeated) {
+        SortedSet<Character> randoms = createRandomSubset(populationNoRepeated);
         return randoms.first();
     }
 
-    private SortedSet<Character> createRandomSubset(final List<Character> uniqueChromosomes) {
-        return uniqueChromosomes.size() < m ?
-                allowToFightSelfInTournament(uniqueChromosomes) :
-                getRandomsFromRandomFights(uniqueChromosomes);
-    }
-
-    private SortedSet<Character> allowToFightSelfInTournament(final List<Character> uniqueChromosomes) {
+    private SortedSet<Character> createRandomSubset(final List<Character> populationNoRepeated) {
         SortedSet<Character> randoms = new TreeSet<>();
-
-        for (int j = 0; j < m; j++)
-            randoms.add(uniqueChromosomes.get(rand.nextInt(uniqueChromosomes.size())));
-
-        return randoms;
-    }
-
-    private SortedSet<Character> getRandomsFromRandomFights(final List<Character> uniqueChromosomes) {
-        SortedSet<Character> randoms = new TreeSet<>();
-        Character randomChromosome;
-
-        for (int j = 0; j < m; j++)
-            do
-                randomChromosome = uniqueChromosomes.get(rand.nextInt(uniqueChromosomes.size()));
-            while (!randoms.add(randomChromosome));
-
+        int size = populationNoRepeated.size();
+        if(size < m){
+            for (int i = 0; i < m; i++) {
+                randoms.add(populationNoRepeated.get(rand.nextInt(size)));
+            }
+        } else{
+            for (int i = 0; i < m; i++) {
+                Character randomCharacter = populationNoRepeated.get(rand.nextInt(size));
+                while (!randoms.add(randomCharacter)) {
+                    randomCharacter = populationNoRepeated.get(rand.nextInt(size));
+                }
+            }
+        }
         return randoms;
     }
 }

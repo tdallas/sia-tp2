@@ -17,8 +17,7 @@ public abstract class Character implements Comparable<Character>{
     private Weapon weapon;
     private Height height;
 
-    public Character(final Boots boots, final Chest chest, final Gloves gloves, final Helmet helmet,
-                     final Weapon weapon, final double height) {
+    public Character(final Boots boots, final Chest chest, final Gloves gloves, final Helmet helmet, final Weapon weapon, final double height) {
         this.boots = boots;
         this.chest = chest;
         this.gloves = gloves;

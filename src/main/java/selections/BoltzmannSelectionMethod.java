@@ -19,7 +19,8 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
         double[] boltzmannFitness = new double[size];
         double[] relativeFitness = new double[size];
 
-        double T = Math.pow(Math.E, -((double)generations++ / (10.0 * (double)maxGenerations)));
+        double T = Math.pow(Math.E, -((double)generations / (10.0 * (double)maxGenerations)));
+        generations++;
         double fitnessSum = 0, average = 0;
         double fitness;
 
@@ -42,8 +43,9 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod{
             fitnessSum += boltzmannFitness[i];
         }
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++) {
             relativeFitness[i] = boltzmannFitness[i] / fitnessSum;
+        }
 
         return relativeFitness;
     }
