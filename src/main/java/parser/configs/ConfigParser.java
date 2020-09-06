@@ -172,7 +172,8 @@ public class ConfigParser {
             return new CompleteMutation(parameter, random);
         }
         else if(mutationString.equals("ONE_GEN")){
-            return new GenMutation(random);
+            parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid one gen mutation probability, must be double");
+            return new GenMutation(parameter, random);
         }
         else if(mutationString.equals("LIMITED")){
             parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid limited mutation probability, must be double");
