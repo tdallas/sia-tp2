@@ -6,8 +6,8 @@ import selections.SelectionMethod;
 import java.util.List;
 
 public class FillAll extends Implementation{
-    public FillAll(SelectionMethod replacementMethod1, SelectionMethod replacementMethod2) {
-        super(replacementMethod1, replacementMethod2);
+    public FillAll(final SelectionMethod replacementMethod1, final SelectionMethod replacementMethod2, final int populationSize) {
+        super(replacementMethod1, replacementMethod2, populationSize);
     }
 
     @Override
