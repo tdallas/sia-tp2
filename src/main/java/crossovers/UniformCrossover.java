@@ -9,10 +9,8 @@ import java.util.Random;
 
 public class UniformCrossover extends Crossover {
 
-    private final Random rand;
-
     public UniformCrossover(Random rand) {
-        this.rand = rand;
+        super(rand);
     }
 
     @Override
@@ -20,7 +18,7 @@ public class UniformCrossover extends Crossover {
         final List<Allele> firstAlleles = new ArrayList<>();
         final List<Allele> secondAlleles = new ArrayList<>();
         for (int i = 0 ; i < MAX_ALLELES ; i++) {
-            if (rand.nextInt() % 2 == 0) {
+            if (getRandom().nextInt() % 2 == 0) {
                 firstAlleles.add(from.get(i));
                 secondAlleles.add(to.get(i));
             } else {

@@ -5,8 +5,13 @@ import alleles.Allele;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class AnnularCrossover extends Crossover {
+
+    public AnnularCrossover(Random random) {
+        super(random);
+    }
 
     @Override
     public List<List<Allele>> crossover(final List<Allele> from, final List<Allele> to) {

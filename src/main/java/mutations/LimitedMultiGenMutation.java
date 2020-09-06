@@ -19,6 +19,7 @@ public class LimitedMultiGenMutation extends GenMutation {
         this.probability = probability;
     }
 
+    @Override
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
         int amountToMutate = getRandom().nextInt(alleles.size()) - 1;
         while (amountToMutate >= 0) {
@@ -28,5 +29,4 @@ public class LimitedMultiGenMutation extends GenMutation {
         }
         return alleles;
     }
-
 }

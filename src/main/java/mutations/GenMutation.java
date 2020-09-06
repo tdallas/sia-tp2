@@ -11,6 +11,7 @@ import java.util.Random;
 
 @Getter
 public class GenMutation {
+    private final static int MAX_ALLELES = 6;
 
     private final Random random;
 
@@ -27,5 +28,11 @@ public class GenMutation {
             newAllele = itemsProvider.getItemToReplace(alleles.get(position.ordinal()), newRandomPosition);
         }
         alleles.set(position.ordinal(), newAllele);
+    }
+
+    public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
+        int randomAllele = random.nextInt(MAX_ALLELES);
+        mutateAtPosition(AlleleType.getAlleleType(randomAllele), alleles, itemsProvider);
+        return alleles;
     }
 }

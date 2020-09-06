@@ -18,7 +18,7 @@ public class CompleteMutation extends GenMutation {
         this.probability = probability;
     }
 
-    // this could be void
+    @Override
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
         for (Allele allele : alleles) {
             if (getRandom().nextDouble() < probability) {
