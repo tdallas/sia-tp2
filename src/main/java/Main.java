@@ -24,14 +24,14 @@ import static engine.utils.CharacterFactory.*;
 public class Main {
 
     public static void main(final String[] args) {
-        long startTime = System.currentTimeMillis();
         PropertiesParser propertiesParser = new PropertiesParser();
         Properties properties = propertiesParser.loadProperties();
         GeneticsAlgorithm geneticsAlgorithm = createGeneticsAlgorithm(properties);
         Character bestCharacter = geneticsAlgorithm.findBestCharacter();
         System.out.println("Best Character found: " + bestCharacter);
+        System.out.println("Generation reached: " + geneticsAlgorithm.getGeneration());
+        System.out.println("Execution time: " + geneticsAlgorithm.getTotalTime());
         System.out.println("Parameters: " + geneticsAlgorithm.toString());
-        System.out.println("Execution time: " + (System.currentTimeMillis() - startTime));
     }
 
     private static GeneticsAlgorithm createGeneticsAlgorithm(final Properties properties) {

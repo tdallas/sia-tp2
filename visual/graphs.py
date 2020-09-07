@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 filename = sys.argv[1]
-df = pd.read_csv(filename, skipfooter=3, engine='python')
+df = pd.read_csv(filename, skipfooter=4, engine='python')
 plt.plot(df['t'], df['fMin'], label='Fitness mínimo')
 plt.plot(df['t'], df['fAvg'], label='Fitness promedio')
 plt.plot(df['t'], df['fMax'], label='Fitness máximo')

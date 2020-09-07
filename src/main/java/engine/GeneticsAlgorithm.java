@@ -34,6 +34,8 @@ public class GeneticsAlgorithm {
     private final int k;
     private List<Character> currentPopulation;
     private final String characterClass;
+    private int generation;
+    private long totalTime;
 
     @Override
     public String toString() {
@@ -75,6 +77,7 @@ public class GeneticsAlgorithm {
         this.k = k;
         this.currentPopulation = firstPopulation;
         this.characterClass = characterClass;
+        this.generation = 0;
     }
 
     public Character findBestCharacter() {
@@ -110,7 +113,9 @@ public class GeneticsAlgorithm {
             System.out.println((System.currentTimeMillis() - startTime) + "," +minimumFitness + "," + averageFitness + "," + bestCharacter.getPerformance());
 
             currentPopulation = nextPopulation;
+            generation++;
         }
+        totalTime = System.currentTimeMillis() - startTime;
         return bestCharacter;
     }
 
@@ -176,6 +181,14 @@ public class GeneticsAlgorithm {
             default:
                 return (CharacterFactory<T>) new CharacterFactory<Defender>(Defender.class);
         }
+    }
+
+    public int getGeneration(){
+        return generation;
+    }
+
+    public long getTotalTime(){
+        return totalTime;
     }
 
 }
