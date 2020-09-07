@@ -104,7 +104,7 @@ public abstract class Character implements Comparable<Character> {
 
     @Override
     public int compareTo(Character character) {
-        double diff = this.getPerformance() - character.getPerformance();
+        double diff = character.getPerformance() - this.getPerformance();
 
         if (diff < 0) {
             return -1;

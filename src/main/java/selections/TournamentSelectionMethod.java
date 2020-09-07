@@ -23,12 +23,12 @@ public abstract class TournamentSelectionMethod extends SelectionMethod {
 
     Character getFittest(final List<Character> populationNoRepeated) {
         SortedSet<Character> randoms = createRandomSubset(populationNoRepeated);
-        return randoms.last();
+        return randoms.first();
     }
 
     Character getLeastFit(final List<Character> populationNoRepeated) {
         SortedSet<Character> randoms = createRandomSubset(populationNoRepeated);
-        return randoms.first();
+        return randoms.last();
     }
 
     private SortedSet<Character> createRandomSubset(final List<Character> populationNoRepeated) {

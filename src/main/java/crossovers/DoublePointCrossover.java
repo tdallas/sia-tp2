@@ -15,11 +15,8 @@ public class DoublePointCrossover extends Crossover {
 
     @Override
     public List<List<Allele>> crossover(final List<Allele> from, final List<Allele> to) {
-        final int firstCrossoverPoint = getCrossoverPoint();
-        int secondCrossoverPoint = firstCrossoverPoint;
-        while (secondCrossoverPoint == firstCrossoverPoint) {
-            secondCrossoverPoint = getCrossoverPoint();
-        }
+        final int firstCrossoverPoint = getRandom().nextInt(MAX_ALLELES - 1);
+        final int secondCrossoverPoint = firstCrossoverPoint + getRandom().nextInt(MAX_ALLELES - firstCrossoverPoint);
 
         final List<Allele> firstChildAlleles = getAlleles(from, to, firstCrossoverPoint, secondCrossoverPoint);
         final List<Allele> secondChildAlleles = getAlleles(to, from, firstCrossoverPoint, secondCrossoverPoint);

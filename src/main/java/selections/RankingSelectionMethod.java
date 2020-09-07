@@ -14,10 +14,10 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
         double n, fitnessSum = 0;
 
         Collections.sort(getPopulation());
-        n = getPopulation().get(getPopulation().size() - 1).getPerformance();
+        n = getPopulation().size();
 
         for (int i = 0; i < getPopulation().size(); i++) {
-            relativeFitness[i] = (n - getPopulation().get(i).getPerformance()) / n;
+            relativeFitness[i] = (n - i) / n;
         }
 
         for (int i = 0; i < getPopulation().size(); i++) {

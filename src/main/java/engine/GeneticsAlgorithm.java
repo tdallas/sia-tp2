@@ -61,22 +61,39 @@ public class GeneticsAlgorithm {
     }
 
     public void start() {
-        Character aux, bestCharacter = findBestCharacter(currentPopulation);
+        Character bestCharacter = currentPopulation.get(0);
+        List <Character> selectedFathers, children, nextPopulation;
+        double minimumFitness, averageFitness, generationalGap;
+        System.out.println("t,fMin,fAvg,fMax,genDiv");
         while (!cutCondition.cutReached(currentPopulation, bestCharacter)) {
-            List<Character> selectedFathers = selectFromMethods(currentPopulation, k);
+            selectedFathers = selectFromMethods(currentPopulation, k);
 
-            List<Character> children = new ArrayList<>(selectedFathers.size());
+            children = new ArrayList<>(selectedFathers.size());
 
             for (int i = 0; i < selectedFathers.size() - 1; i += 2) {
                 children.addAll(breeding(selectedFathers.get(i), selectedFathers.get(i + 1)));
             }
 
-            currentPopulation = implementation.nextPopulation(currentPopulation, children);
+            nextPopulation = implementation.nextPopulation(currentPopulation, children);
 
-            aux = findBestCharacter(currentPopulation);
-            if (aux.getPerformance() > bestCharacter.getPerformance()) {
-                bestCharacter = aux;
+            minimumFitness = Double.MAX_VALUE;
+            averageFitness = 0;
+            generationalGap = 0;
+            for (Character c : currentPopulation) {
+                double fitness = c.getPerformance();
+                if (fitness > bestCharacter.getPerformance()) {
+                    bestCharacter = c;
+                }
+                if(fitness < minimumFitness){
+                    minimumFitness = fitness;
+                }
+                averageFitness += fitness;
             }
+            averageFitness = averageFitness / currentPopulation.size();
+            //Diversidad genetica
+            System.out.println(minimumFitness + "," + averageFitness + "," + bestCharacter.getPerformance() + "," + generationalGap);
+
+            currentPopulation = nextPopulation;
         }
         System.out.println(bestCharacter);
     }
@@ -90,16 +107,6 @@ public class GeneticsAlgorithm {
 
         selectedFromMethod1.addAll(selectedFromMethod2);
         return selectedFromMethod1;
-    }
-
-    private Character findBestCharacter(List<Character> population) {
-        Character bestCharacter = population.get(0);
-        for (Character c : population) {
-            if (c.getPerformance() > bestCharacter.getPerformance()) {
-                bestCharacter = c;
-            }
-        }
-        return bestCharacter;
     }
 
     public List<Character> breeding(final Character dad, final Character mom) {

@@ -49,11 +49,9 @@ public class EliteSelectionMethodTest {
     public void eliteSelectionTest() {
         EliteSelectionMethod eliteSelectionMethod = new EliteSelectionMethod(1);
         List<Character> population = Arrays.asList(c1, c2, c3, c4);
-        List<Character> elite = eliteSelectionMethod.select(population, 4);
+        List<Character> elite = eliteSelectionMethod.select(population, 2);
         assertEquals(elite.get(0), c4);
         assertEquals(elite.get(1), c3);
-        assertEquals(elite.get(2), c2);
-        assertEquals(elite.get(3), c1);
-        assertEquals(elite.size(), 4);
+        assertEquals(elite.size(), 2);
     }
 }
