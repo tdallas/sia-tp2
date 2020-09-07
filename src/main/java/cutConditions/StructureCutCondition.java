@@ -21,7 +21,7 @@ public class StructureCutCondition extends CutCondition {
     @Override
     public boolean cutReached(List<Character> population, Character bestCharacter) {
         if (lastPopulation == null) {
-            generations = 0;
+            generations = 1;
             lastPopulation = new ArrayList<>(population);
         } else if (charactersInCommon(lastPopulation, population) >= populationInCommon) {
             generations++;

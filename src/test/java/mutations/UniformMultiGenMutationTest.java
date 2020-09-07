@@ -54,7 +54,7 @@ public class UniformMultiGenMutationTest {
         Mockito.when(random.nextInt(6)).thenReturn(3);
         Mockito.when(random.nextInt(50)).thenReturn(10);
         // This will only mutate height and chest
-        uniformMultiGenMutation = new UniformMultiGenMutation(0.5 , random);
+        uniformMultiGenMutation = new UniformMultiGenMutation(0.5, random);
     }
 
     @Test

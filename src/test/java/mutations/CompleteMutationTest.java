@@ -52,7 +52,7 @@ public class CompleteMutationTest {
                 .thenReturn(0.7);
         Mockito.when(random.nextInt(50)).thenReturn(10);
         // This will only mutate height and chest
-        completeMutation = new CompleteMutation(1 , random);
+        completeMutation = new CompleteMutation(1, random);
     }
 
     @Test

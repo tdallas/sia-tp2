@@ -46,7 +46,7 @@ public class GenMutationTest {
         Random random = mock(Random.class);
         Mockito.when(random.nextInt(6)).thenReturn(3);
         Mockito.when(random.nextInt(50)).thenReturn(10);
-        genMutation = new GenMutation(1 , random);
+        genMutation = new GenMutation(1, random);
     }
 
     @Test

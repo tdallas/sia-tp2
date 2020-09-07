@@ -55,7 +55,7 @@ public class LimitedMultiGenMutationTest {
         Mockito.when(random.nextInt(6)).thenReturn(3);
         Mockito.when(random.nextInt(50)).thenReturn(10);
         // This will only mutate height and chest
-        limitedMultiGenMutation = new LimitedMultiGenMutation(0.5 , random);
+        limitedMultiGenMutation = new LimitedMultiGenMutation(0.5, random);
     }
 
     @Test
