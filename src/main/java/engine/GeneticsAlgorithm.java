@@ -61,7 +61,7 @@ public class GeneticsAlgorithm {
     }
 
     public void start() {
-        Character bestCharacter = findBestCharacter(currentPopulation);
+        Character aux, bestCharacter = findBestCharacter(currentPopulation);
         while (!cutCondition.cutReached(currentPopulation, bestCharacter)) {
             List<Character> selectedFathers = selectFromMethods(currentPopulation, k);
 
@@ -73,7 +73,10 @@ public class GeneticsAlgorithm {
 
             currentPopulation = implementation.nextPopulation(currentPopulation, children);
 
-            bestCharacter = findBestCharacter(currentPopulation);
+            aux = findBestCharacter(currentPopulation);
+            if(aux.getPerformance() > bestCharacter.getPerformance()){
+                bestCharacter = aux;
+            }
         }
         System.out.println(bestCharacter);
     }

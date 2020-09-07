@@ -3,6 +3,7 @@ package selections;
 import characters.Character;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EliteSelectionMethod extends SelectionMethod {
@@ -15,9 +16,9 @@ public class EliteSelectionMethod extends SelectionMethod {
     public List<Character> select(final List<Character> population, final int k) {
         List<Character> selectedList = new ArrayList<>();
 
-        population.sort((c1, c2) -> (int) (c2.getPerformance() - c1.getPerformance()));
+        Collections.sort(population);
 
-        for (int i = 0; i < k; i++)
+        for (int i = k - 1; i >= 0; i--)
             selectedList.add(population.get(i));
 
         return selectedList;
