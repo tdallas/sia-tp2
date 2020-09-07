@@ -18,7 +18,7 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
-public class GenMutationTest {
+public class OneGenMutationTest {
 
 
     private final Weapon weapon = new Weapon(1, 1d, 1d, 1d, 1d, 1d);
@@ -30,7 +30,7 @@ public class GenMutationTest {
     private final List<Allele> dad = Arrays.asList(new Height(1.6d), boots, chest, gloves, helmet, weapon);
 
     private ItemsProvider itemsProvider;
-    private GenMutation genMutation;
+    private OneGenMutation oneGenMutation;
 
     @Before
     public void setup() throws IOException {
@@ -46,12 +46,12 @@ public class GenMutationTest {
         Random random = mock(Random.class);
         Mockito.when(random.nextInt(6)).thenReturn(3);
         Mockito.when(random.nextInt(50)).thenReturn(10);
-        genMutation = new GenMutation(1, random);
+        oneGenMutation = new OneGenMutation(1, random);
     }
 
     @Test
     public void testGenMutationAtPosition() {
-        List<Allele> newAlleles = genMutation.mutate(dad, itemsProvider);
+        List<Allele> newAlleles = oneGenMutation.mutate(dad, itemsProvider);
         //    HEIGHT, BOOTS, CHEST, GLOVES, HELMET, WEAPON;
         assertEquals("Height should remain the same", 1.6d, ((Height) newAlleles.get(0)).getValue(), 0);
         assertEquals("Boots should be the same", 1, ((Item) newAlleles.get(1)).getId());

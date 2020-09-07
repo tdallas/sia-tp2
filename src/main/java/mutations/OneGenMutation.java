@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Random;
 
 @Getter
-public class GenMutation extends Mutation {
+public class OneGenMutation extends Mutation {
 
     private final double probability;
 
-    public GenMutation(final double probability, final Random random) {
+    public OneGenMutation(final double probability, final Random random) {
         super(random);
         this.probability = probability;
     }
@@ -29,6 +29,6 @@ public class GenMutation extends Mutation {
 
     @Override
     public String toString() {
-        return "GEN";
+        return "ONE_GEN";
     }
 }
