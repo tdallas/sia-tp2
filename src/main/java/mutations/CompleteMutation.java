@@ -20,8 +20,8 @@ public class CompleteMutation extends Mutation {
 
     @Override
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
-        for (Allele allele : alleles) {
-            if (getRandom().nextDouble() < probability) {
+        if (getRandom().nextDouble() < probability) {
+            for (Allele allele : alleles) {
                 int indexOfAllele = alleles.indexOf(allele);
                 mutateAtPosition(AlleleType.getAlleleType(indexOfAllele), alleles, itemsProvider);
             }
