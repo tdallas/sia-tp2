@@ -39,6 +39,14 @@ public class Main {
         SelectionMethod selectionMethod2 = ConfigParser.parseSelectionMethod(properties, ConfigKeys.SELECTION_METHOD_2, random);
         SelectionMethod replacementMethod1 = ConfigParser.parseSelectionMethod(properties, ConfigKeys.REPLACEMENT_METHOD_1, random);
         SelectionMethod replacementMethod2 = ConfigParser.parseSelectionMethod(properties, ConfigKeys.REPLACEMENT_METHOD_2, random);
+        if(selectionMethod1.getPercentage() + selectionMethod2.getPercentage() != 1.0){
+            System.out.println("Invalid percentages of selection method 1 and selection method 2. The sum of both must be equal to 1");
+            System.exit(1);
+        }
+        if(replacementMethod1.getPercentage() + replacementMethod2.getPercentage() != 1.0){
+            System.out.println("Invalid percentages of replacement method 1 and replacement method 2. The sum of both must be equal to 1");
+            System.exit(1);
+        }
         Implementation implementation = ConfigParser.parseImplementation(properties, replacementMethod1, replacementMethod2, populationSize);
         CutCondition cutCondition = ConfigParser.parseCutCondition(properties);
 

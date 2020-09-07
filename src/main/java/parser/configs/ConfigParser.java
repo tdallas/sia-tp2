@@ -65,24 +65,42 @@ public class ConfigParser {
         int intCutParam1;
         int intCutParam2;
         if(cutConditionString.equals("TIME")){
-            longCutParam = tryParseLong((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid time parameter, must be a long");
+            longCutParam = tryParseLong((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid time parameter 1, must be a long");
+            if(longCutParam < 0){
+                errorMsgAndClose("Invalid time parameter 1, must be positive number");
+            }
             return new TimeCutCondition(longCutParam);
         }
         else if(cutConditionString.equals("ACCEPTABLE")){
-            doubleCutParam = tryParseDouble((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid acceptable fitness parameter, must be double");
+            doubleCutParam = tryParseDouble((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid acceptable fitness parameter 1, must be double");
+            if(doubleCutParam < 0.0){
+                errorMsgAndClose("Invalid acceptable fitness parameter 1, must be positive number");
+            }
             return new AcceptableCutCondition(doubleCutParam);
         }
         else if(cutConditionString.equals("CONTENT")){
-            intCutParam1 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid content generations parameter, must be integer");
+            intCutParam1 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid content generations parameter 1, must be integer");
+            if(intCutParam1 < 1){
+                errorMsgAndClose("Invalid content generations parameter 1, must be positive number");
+            }
             return new ContentCutCondition(intCutParam1);
         }
         else if(cutConditionString.equals("GENERATION")){
-            intCutParam1 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid max generations parameter, must be integer");
+            intCutParam1 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid max generations parameter 1, must be integer");
+            if(intCutParam1 < 1){
+                errorMsgAndClose("Invalid max generations parameter 1, must be positive number");
+            }
             return new GenerationCutCondition(intCutParam1);
         }
         else if(cutConditionString.equals("STRUCTURE")){
             intCutParam1 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_1), "Invalid structure population in common parameter 1, must be integer");
             intCutParam2 = tryParseInt((String) properties.get(ConfigKeys.CUT_CONDITION_PARAMETER_2), "Invalid structure generations parameter 2, must be integer");
+            if(intCutParam1 < 1){
+                errorMsgAndClose("Invalid structure population in common parameter 1, must be positive number");
+            }
+            if(intCutParam2 < 1){
+                errorMsgAndClose("Invalid structure generations parameter 2, must be positive number");
+            }
             return new StructureCutCondition(intCutParam1, intCutParam2);
         }
         else{
@@ -114,10 +132,16 @@ public class ConfigParser {
         }
         else if(selectionMethodString.equals("PROBABILISTIC_TOURNAMENT")){
             doubleParameter = tryParseDouble((String) properties.get(whichSelection + ".parameter"), "Invalid " + whichSelection + " threshold parameter, must be double");
+            if(doubleParameter < 0.5 || doubleParameter > 1.0){
+                errorMsgAndClose("Invalid probabilistic tournament threshold parameter, must be between 0.5 and 1.0");
+            }
             return new ProbabilisticTournamentSelection(percentage, random, doubleParameter);
         }
         else if(selectionMethodString.equals("DETERMINISTIC_TOURNAMENT")){
             intParameter = tryParseInt((String) properties.get(whichSelection + ".parameter"), "Invalid " + whichSelection + " m parameter, must be integer");
+            if(intParameter < 0){
+                errorMsgAndClose("Invalid deterministic tournament parameter, m must be positive number");
+            }
             return new DeterministicTournamentSelection(percentage, random, intParameter);
         }
         else {
@@ -130,6 +154,9 @@ public class ConfigParser {
     public static Implementation parseImplementation(Properties properties, SelectionMethod replacementMethod1, SelectionMethod replacementMethod2, int populationSize){
         String implementationString = (String) properties.get(ConfigKeys.IMPLEMENTATION_MODE);
         int implementationParameter = tryParseInt((String) properties.get(ConfigKeys.IMPLEMENTATION_MODE_PARAMETER), "Invalid implementation parameter, must be integer");
+        if(implementationParameter < 1){
+            errorMsgAndClose("Invalid implementation parameter, must be positive number");
+        }
         if(implementationString.equals("FILL_ALL")){
             return new FillAll(replacementMethod1, replacementMethod2, populationSize, implementationParameter);
         }
@@ -169,18 +196,30 @@ public class ConfigParser {
         double parameter;
         if(mutationString.equals("COMPLETE")){
             parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid complete mutation probability, must be double");
+            if(parameter < 0 || parameter > 1){
+                errorMsgAndClose("Invalid complete mutation probability, must be between 0.0 and 1.0");
+            }
             return new CompleteMutation(parameter, random);
         }
         else if(mutationString.equals("ONE_GEN")){
             parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid one gen mutation probability, must be double");
+            if(parameter < 0 || parameter > 1){
+                errorMsgAndClose("Invalid one gen mutation probability, must be between 0.0 and 1.0");
+            }
             return new GenMutation(parameter, random);
         }
         else if(mutationString.equals("LIMITED")){
             parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid limited mutation probability, must be double");
+            if(parameter < 0 || parameter > 1){
+                errorMsgAndClose("Invalid limited mutation probability, must be between 0.0 and 1.0");
+            }
             return new LimitedMultiGenMutation(parameter, random);
         }
         else if(mutationString.equals("UNIFORM")){
             parameter = tryParseDouble((String) properties.get(ConfigKeys.MUTATION_METHOD_PROBABILITY), "Invalid uniform mutation probability, must be double");
+            if(parameter < 0 || parameter > 1){
+                errorMsgAndClose("Invalid uniform mutation probability, must be between 0.0 and 1.0");
+            }
             return new UniformMultiGenMutation(parameter, random);
         }
         else {
@@ -191,12 +230,24 @@ public class ConfigParser {
     }
 
     public static int parsePopulationSize(Properties properties){
-        return tryParseInt((String) properties.get(ConfigKeys.POPULATION_SIZE), "Invalid population size parameter, must be integer");
+        int populationSize = tryParseInt((String) properties.get(ConfigKeys.POPULATION_SIZE), "Invalid population size parameter, must be integer");
+        if(populationSize < 1){
+            errorMsgAndClose("Invalid population size parameter, must be positive number");
+        }
+        return populationSize;
     }
 
     public static int parseNumberOfItems(Properties properties){
-        return tryParseInt((String) properties.get(ConfigKeys.NUMBER_OF_ITEMS), "Invalid number of items parameter, must be integer");
+        int numberOfItems = tryParseInt((String) properties.get(ConfigKeys.NUMBER_OF_ITEMS), "Invalid number of items parameter, must be integer");
+        if(numberOfItems < 1){
+            errorMsgAndClose("Invalid number of items parameter, must be positive number");
+        }
+        return numberOfItems;
+    }
 
+    private static void errorMsgAndClose(String errorMessage){
+        System.out.println(errorMessage);
+        System.exit(1);
     }
 
 }
