@@ -39,6 +39,6 @@ public class ProbabilisticTournamentSelection extends TournamentSelectionMethod 
 
     @Override
     public String toString() {
-        return "PROBABILISTIC_TOURNAMENT";
+        return "PROBABILISTIC_TOURNAMENT" + ", Percentage: " + getPercentage() + ", Threshold Parameter: " + threshold;
     }
 }

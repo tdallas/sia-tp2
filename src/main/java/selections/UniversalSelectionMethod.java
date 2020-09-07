@@ -22,6 +22,6 @@ public class UniversalSelectionMethod extends RouletteSelectionMethod {
 
     @Override
     public String toString() {
-        return "UNIVERSAL";
+        return "UNIVERSAL, Percentage: " + getPercentage();
     }
 }

@@ -21,6 +21,10 @@ public abstract class TournamentSelectionMethod extends SelectionMethod {
         return rand;
     }
 
+    public int getM(){
+        return m;
+    }
+
     Character getFittest(final List<Character> populationNoRepeated) {
         SortedSet<Character> randoms = createRandomSubset(populationNoRepeated);
         return randoms.first();

@@ -29,6 +29,6 @@ public class DeterministicTournamentSelection extends TournamentSelectionMethod 
 
     @Override
     public String toString() {
-        return "DETERMINISTIC_TOURNAMENT";
+        return "DETERMINISTIC_TOURNAMENT" + ", Percentage: " + getPercentage() + ", M Parameter: " + getM();
     }
 }

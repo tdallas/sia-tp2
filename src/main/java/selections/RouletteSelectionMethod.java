@@ -85,7 +85,7 @@ public class RouletteSelectionMethod extends SelectionMethod {
 
     @Override
     public String toString() {
-        return "ROULETTE";
+        return "ROULETTE, Percentage: " + getPercentage();
     }
 
 }

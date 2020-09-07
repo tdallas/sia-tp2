@@ -32,6 +32,6 @@ public class LimitedMultiGenMutation extends Mutation {
 
     @Override
     public String toString() {
-        return "LIMITED_MULTI_GEN";
+        return "LIMITED_MULTI_GEN, Probability: " + probability;
     }
 }

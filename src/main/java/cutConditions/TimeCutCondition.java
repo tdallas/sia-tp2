@@ -6,9 +6,11 @@ import java.util.List;
 
 public class TimeCutCondition extends CutCondition {
     private final long finishTime;
+    private final long timeParam;
 
     public TimeCutCondition(long timeMillis) {
         this.finishTime = System.currentTimeMillis() + timeMillis;
+        this.timeParam = timeMillis;
     }
 
     @Override
@@ -18,6 +20,6 @@ public class TimeCutCondition extends CutCondition {
 
     @Override
     public String toString() {
-        return "TIME";
+        return "TIME, Time Parameter: " + timeParam;
     }
 }

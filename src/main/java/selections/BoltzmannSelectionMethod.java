@@ -53,6 +53,6 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod {
 
     @Override
     public String toString() {
-        return "BOLTZMANN";
+        return "BOLTZMANN, Percentage: " + getPercentage();
     }
 }

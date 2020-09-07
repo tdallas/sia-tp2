@@ -18,6 +18,6 @@ public class AcceptableCutCondition extends CutCondition {
 
     @Override
     public String toString() {
-        return "ACCEPTABLE";
+        return "ACCEPTABLE, Acceptable Fitness Parameter: " + acceptableFitness;
     }
 }

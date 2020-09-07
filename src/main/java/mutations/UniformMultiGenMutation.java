@@ -31,6 +31,6 @@ public class UniformMultiGenMutation extends Mutation {
 
     @Override
     public String toString() {
-        return "UNIFORM_MULTI_GEN";
+        return "UNIFORM_MULTI_GEN, Probability: " + probability;
     }
 }

@@ -29,6 +29,6 @@ public class ContentCutCondition extends CutCondition {
 
     @Override
     public String toString() {
-        return "CONTENT";
+        return "CONTENT, Generations Parameter: " + maxGenerations;
     }
 }

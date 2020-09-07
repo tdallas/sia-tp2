@@ -47,6 +47,6 @@ public class StructureCutCondition extends CutCondition {
 
     @Override
     public String toString() {
-        return "STRUCTURE";
+        return "STRUCTURE, Population In Common Parameter: " + populationInCommon + ", Generations Parameter: " + maxGenerations;
     }
 }

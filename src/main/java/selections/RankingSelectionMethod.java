@@ -33,6 +33,6 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
 
     @Override
     public String toString() {
-        return "RANKING";
+        return "RANKING, Percentage: " + getPercentage();
     }
 }

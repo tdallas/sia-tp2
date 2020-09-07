@@ -31,6 +31,6 @@ public class CompleteMutation extends Mutation {
 
     @Override
     public String toString() {
-        return "COMPLETE";
+        return "COMPLETE, Probability: " + probability;
     }
 }

@@ -28,6 +28,6 @@ public class EliteSelectionMethod extends SelectionMethod {
 
     @Override
     public String toString() {
-        return "ELITE";
+        return "ELITE, Percentage: " + getPercentage();
     }
 }

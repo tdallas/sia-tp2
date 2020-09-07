@@ -29,6 +29,6 @@ public class OneGenMutation extends Mutation {
 
     @Override
     public String toString() {
-        return "ONE_GEN";
+        return "ONE_GEN, Probability: " + probability;
     }
 }

@@ -21,6 +21,6 @@ public class GenerationCutCondition extends CutCondition {
 
     @Override
     public String toString() {
-        return "GENERATION";
+        return "GENERATION, Max Generations Parameter: " + maxGenerations;
     }
 }
