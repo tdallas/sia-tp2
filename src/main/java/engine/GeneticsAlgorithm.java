@@ -118,11 +118,27 @@ public class GeneticsAlgorithm {
         int kMethod1 = (int) (selectionMethod1.getPercentage() * n);
         int kMethod2 = n - kMethod1;
 
-        List<Character> selectedFromMethod1 = selectionMethod1.select(population, kMethod1);
-        List<Character> selectedFromMethod2 = selectionMethod2.select(population, kMethod2);
+        List<Character> selectedFromMethod1 = selectK(selectionMethod1, population, kMethod1);
+        List<Character> selectedFromMethod2 = selectK(selectionMethod2, population, kMethod2);
 
         selectedFromMethod1.addAll(selectedFromMethod2);
         return selectedFromMethod1;
+    }
+
+    private List<Character> selectK(SelectionMethod selectionMethod, List<Character> population, int k){
+        List<Character> result;
+        if(k > populationSize){
+            result = new ArrayList<>();
+            while(k > populationSize){
+                result.addAll(selectionMethod.select(population, populationSize));
+                k -= populationSize;
+            }
+            result.addAll(selectionMethod.select(population, k));
+        }
+        else{
+            result = selectionMethod.select(population, k);
+        }
+        return result;
     }
 
     public List<Character> breeding(final Character dad, final Character mom) {

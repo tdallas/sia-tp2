@@ -3,6 +3,7 @@ package engine.implementation;
 import characters.Character;
 import selections.SelectionMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Implementation {
@@ -38,11 +39,27 @@ public abstract class Implementation {
         int kMethod1 = (int) (replacementMethod1.getPercentage() * n);
         int KMethod2 = n - kMethod1;
 
-        List<Character> selectedFromMethod1 = replacementMethod1.select(population, kMethod1);
-        List<Character> selectedFromMethod2 = replacementMethod2.select(population, KMethod2);
+        List<Character> selectedFromMethod1 = selectK(replacementMethod1, population, kMethod1);
+        List<Character> selectedFromMethod2 = selectK(replacementMethod2, population, KMethod2);
 
         selectedFromMethod1.addAll(selectedFromMethod2);
         return selectedFromMethod1;
+    }
+
+    private List<Character> selectK(SelectionMethod selectionMethod, List<Character> population, int k){
+        List<Character> result;
+        if(k > populationSize){
+            result = new ArrayList<>();
+            while(k > populationSize){
+                result.addAll(selectionMethod.select(population, populationSize));
+                k -= populationSize;
+            }
+            result.addAll(selectionMethod.select(population, k));
+        }
+        else{
+            result = selectionMethod.select(population, k);
+        }
+        return result;
     }
 
     public abstract List<Character> nextPopulation(List<Character> currentPopulation, List<Character> sons);
