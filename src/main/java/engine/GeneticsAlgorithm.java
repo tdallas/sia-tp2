@@ -10,6 +10,7 @@ import crossovers.Crossover;
 import cutConditions.CutCondition;
 import engine.implementation.Implementation;
 import engine.utils.CharacterFactory;
+import engine.utils.GenerationalGap;
 import mutations.Mutation;
 import selections.SelectionMethod;
 
@@ -63,8 +64,9 @@ public class GeneticsAlgorithm {
     public void start() {
         Character bestCharacter = currentPopulation.get(0);
         List <Character> selectedFathers, children, nextPopulation;
-        double minimumFitness, averageFitness, generationalGap;
-        System.out.println("t,fMin,fAvg,fMax,genDiv");
+        double minimumFitness, averageFitness;
+        long startTime = System.currentTimeMillis();
+        System.out.println("t,fMin,fAvg,fMax");
         while (!cutCondition.cutReached(currentPopulation, bestCharacter)) {
             selectedFathers = selectFromMethods(currentPopulation, k);
 
@@ -78,7 +80,6 @@ public class GeneticsAlgorithm {
 
             minimumFitness = Double.MAX_VALUE;
             averageFitness = 0;
-            generationalGap = 0;
             for (Character c : currentPopulation) {
                 double fitness = c.getPerformance();
                 if (fitness > bestCharacter.getPerformance()) {
@@ -90,8 +91,7 @@ public class GeneticsAlgorithm {
                 averageFitness += fitness;
             }
             averageFitness = averageFitness / currentPopulation.size();
-            //Diversidad genetica
-            System.out.println(minimumFitness + "," + averageFitness + "," + bestCharacter.getPerformance() + "," + generationalGap);
+            System.out.println((System.currentTimeMillis() - startTime) + "," +minimumFitness + "," + averageFitness + "," + bestCharacter.getPerformance());
 
             currentPopulation = nextPopulation;
         }
