@@ -24,10 +24,13 @@ import static engine.utils.CharacterFactory.*;
 public class Main {
 
     public static void main(final String[] args) {
+        long startTime = System.currentTimeMillis();
         PropertiesParser propertiesParser = new PropertiesParser();
         Properties properties = propertiesParser.loadProperties();
         GeneticsAlgorithm geneticsAlgorithm = createGeneticsAlgorithm(properties);
         geneticsAlgorithm.start();
+        System.out.println("Ejecución realizara con " + geneticsAlgorithm.toString());
+        System.out.println("La ejecución tardó " + (System.currentTimeMillis() - startTime));
     }
 
     private static GeneticsAlgorithm createGeneticsAlgorithm(final Properties properties) {

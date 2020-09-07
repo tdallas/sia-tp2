@@ -29,4 +29,8 @@ public class CompleteMutation extends Mutation {
         return alleles;
     }
 
+    @Override
+    public String toString() {
+        return "COMPLETE";
+    }
 }

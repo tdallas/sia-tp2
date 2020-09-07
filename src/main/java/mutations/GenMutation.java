@@ -26,4 +26,9 @@ public class GenMutation extends Mutation {
         }
         return alleles;
     }
+
+    @Override
+    public String toString() {
+        return "GEN";
+    }
 }

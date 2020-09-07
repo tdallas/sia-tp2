@@ -29,4 +29,9 @@ public class LimitedMultiGenMutation extends Mutation {
         }
         return alleles;
     }
+
+    @Override
+    public String toString() {
+        return "LIMITED_MULTI_GEN";
+    }
 }

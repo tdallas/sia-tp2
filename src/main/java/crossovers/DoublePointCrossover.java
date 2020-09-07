@@ -30,4 +30,9 @@ public class DoublePointCrossover extends Crossover {
         return newAlleles;
     }
 
+    @Override
+    public String toString() {
+        return "DOUBLE_POINT";
+    }
+
 }

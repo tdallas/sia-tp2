@@ -23,4 +23,10 @@ public class EliteSelectionMethod extends SelectionMethod {
 
         return selectedList;
     }
+
+
+    @Override
+    public String toString() {
+        return "ELITE";
+    }
 }

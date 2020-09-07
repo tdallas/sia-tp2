@@ -83,4 +83,9 @@ public class RouletteSelectionMethod extends SelectionMethod {
         return accumulatedFitness;
     }
 
+    @Override
+    public String toString() {
+        return "ROULETTE";
+    }
+
 }

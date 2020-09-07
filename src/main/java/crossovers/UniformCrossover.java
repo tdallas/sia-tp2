@@ -28,4 +28,9 @@ public class UniformCrossover extends Crossover {
         }
         return Arrays.asList(firstAlleles, secondAlleles);
     }
+
+    @Override
+    public String toString() {
+        return "UNIFORM";
+    }
 }

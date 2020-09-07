@@ -25,4 +25,10 @@ public class DeterministicTournamentSelection extends TournamentSelectionMethod 
 
         return selectedList;
     }
+
+
+    @Override
+    public String toString() {
+        return "DETERMINISTIC_TOURNAMENT";
+    }
 }

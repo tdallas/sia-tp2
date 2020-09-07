@@ -29,4 +29,8 @@ public class UniformMultiGenMutation extends Mutation {
         return alleles;
     }
 
+    @Override
+    public String toString() {
+        return "UNIFORM_MULTI_GEN";
+    }
 }

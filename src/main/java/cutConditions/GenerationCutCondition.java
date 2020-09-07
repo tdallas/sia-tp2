@@ -18,4 +18,9 @@ public class GenerationCutCondition extends CutCondition {
         generation++;
         return generation >= maxGenerations;
     }
+
+    @Override
+    public String toString() {
+        return "GENERATION";
+    }
 }

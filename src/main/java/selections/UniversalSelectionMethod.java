@@ -19,4 +19,9 @@ public class UniversalSelectionMethod extends RouletteSelectionMethod {
         }
         return randomArray;
     }
+
+    @Override
+    public String toString() {
+        return "UNIVERSAL";
+    }
 }

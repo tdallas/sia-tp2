@@ -28,4 +28,9 @@ public class AnnularCrossover extends Crossover {
         newAlleles.addAll(to.subList(toPoint, MAX_ALLELES));
         return newAlleles;
     }
+
+    @Override
+    public String toString() {
+        return "ANNULAR";
+    }
 }

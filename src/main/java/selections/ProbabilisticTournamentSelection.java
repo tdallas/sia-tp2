@@ -36,4 +36,9 @@ public class ProbabilisticTournamentSelection extends TournamentSelectionMethod 
 
         return selectedList;
     }
+
+    @Override
+    public String toString() {
+        return "PROBABILISTIC_TOURNAMENT";
+    }
 }

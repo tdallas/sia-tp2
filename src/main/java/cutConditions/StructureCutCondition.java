@@ -44,4 +44,9 @@ public class StructureCutCondition extends CutCondition {
         }
         return sum;
     }
+
+    @Override
+    public String toString() {
+        return "STRUCTURE";
+    }
 }

@@ -18,4 +18,9 @@ public class FillAll extends Implementation {
         currentPopulation.addAll(sons);
         return selectFromMethods(currentPopulation, getPopulationSize());
     }
+
+    @Override
+    public String toString() {
+        return "FILL_ALL";
+    }
 }

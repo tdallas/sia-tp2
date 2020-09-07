@@ -15,4 +15,9 @@ public class AcceptableCutCondition extends CutCondition {
     public boolean cutReached(List<Character> population, Character bestCharacter) {
         return bestCharacter.getPerformance() >= acceptableFitness;
     }
+
+    @Override
+    public String toString() {
+        return "ACCEPTABLE";
+    }
 }

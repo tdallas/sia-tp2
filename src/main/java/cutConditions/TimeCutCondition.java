@@ -15,4 +15,9 @@ public class TimeCutCondition extends CutCondition {
     public boolean cutReached(List<Character> population, Character bestCharacter) {
         return System.currentTimeMillis() >= finishTime;
     }
+
+    @Override
+    public String toString() {
+        return "TIME";
+    }
 }

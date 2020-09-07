@@ -51,4 +51,8 @@ public class BoltzmannSelectionMethod extends RouletteSelectionMethod {
         return relativeFitness;
     }
 
+    @Override
+    public String toString() {
+        return "BOLTZMANN";
+    }
 }

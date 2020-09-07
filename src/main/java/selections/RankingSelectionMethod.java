@@ -30,4 +30,9 @@ public class RankingSelectionMethod extends RouletteSelectionMethod {
 
         return relativeFitness;
     }
+
+    @Override
+    public String toString() {
+        return "RANKING";
+    }
 }

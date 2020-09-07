@@ -26,4 +26,9 @@ public class ContentCutCondition extends CutCondition {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "CONTENT";
+    }
 }

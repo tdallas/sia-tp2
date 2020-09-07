@@ -35,6 +35,14 @@ public class GeneticsAlgorithm {
     private List<Character> currentPopulation;
     private final String characterClass;
 
+    @Override
+    public String toString() {
+        return "Population size: " + populationSize + " | implementation: " + implementation.toString() + " | selection1: " +
+                selectionMethod1.toString() + " | selection2: " + selectionMethod2.toString() + " | mutation : " + mutation.toString() +
+                " | crossover: " + crossover.toString() + "| cutCondition: "+ cutCondition.toString() + "| replacement1: " +
+                implementation.getReplacementMethod1().toString() + "| replacement2: " + implementation.getReplacementMethod2().toString();
+    }
+
     public GeneticsAlgorithm(final Random random,
                              final int populationSize,
                              final ItemsProvider itemsProvider,
