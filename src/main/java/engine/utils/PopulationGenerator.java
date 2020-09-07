@@ -14,9 +14,9 @@ public class PopulationGenerator<T extends Character> {
     //    HEIGHT, BOOTS, CHEST, GLOVES, HELMET, WEAPON;
 
     public List<Character> generateFirstPopulation(int populationSize,
-                                           final Random random,
-                                           final ItemsProvider itemsProvider,
-                                           final CharacterFactory<T> characterFactory) {
+                                                   final Random random,
+                                                   final ItemsProvider itemsProvider,
+                                                   final CharacterFactory<T> characterFactory) {
         List<Character> initialPopulation = new ArrayList<>(populationSize);
         while (populationSize > 0) {
             Height height = new Height(Height.MIN_HEIGHT + random.nextDouble() * (Height.MAX_HEIGHT - Height.MIN_HEIGHT));

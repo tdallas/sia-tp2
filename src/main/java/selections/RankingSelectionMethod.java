@@ -1,7 +1,5 @@
 package selections;
 
-import characters.Character;
-
 import java.util.Collections;
 import java.util.Random;
 

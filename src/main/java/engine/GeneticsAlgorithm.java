@@ -4,8 +4,8 @@ import ItemProvider.ItemsProvider;
 import alleles.Allele;
 import alleles.Height;
 import alleles.items.*;
-import characters.*;
 import characters.Character;
+import characters.*;
 import crossovers.Crossover;
 import cutConditions.CutCondition;
 import engine.implementation.Implementation;
@@ -68,13 +68,13 @@ public class GeneticsAlgorithm {
             List<Character> children = new ArrayList<>(selectedFathers.size());
 
             for (int i = 0; i < selectedFathers.size() - 1; i += 2) {
-                children.addAll(breeding(selectedFathers.get(i), selectedFathers.get(i+1)));
+                children.addAll(breeding(selectedFathers.get(i), selectedFathers.get(i + 1)));
             }
 
             currentPopulation = implementation.nextPopulation(currentPopulation, children);
 
             aux = findBestCharacter(currentPopulation);
-            if(aux.getPerformance() > bestCharacter.getPerformance()){
+            if (aux.getPerformance() > bestCharacter.getPerformance()) {
                 bestCharacter = aux;
             }
         }

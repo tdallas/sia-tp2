@@ -22,7 +22,7 @@ public class LimitedMultiGenMutation extends Mutation {
     @Override
     public List<Allele> mutate(final List<Allele> alleles, final ItemsProvider itemsProvider) {
         int amountToMutate = getRandom().nextInt(MAX_ALLELES);
-        for (int i = 0 ; i <= amountToMutate; i++) {
+        for (int i = 0; i <= amountToMutate; i++) {
             if (getRandom().nextDouble() < probability) {
                 mutateAtPosition(AlleleType.getAlleleType(i), alleles, itemsProvider);
             }
