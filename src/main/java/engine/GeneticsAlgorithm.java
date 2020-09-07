@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 import static engine.utils.CharacterFactory.*;
 
 public class GeneticsAlgorithm {
-    private final Random random;
+    private final long randomSeed;
     private final int populationSize;
     private final Implementation implementation;
     private final ItemsProvider itemsProvider;
@@ -37,13 +37,21 @@ public class GeneticsAlgorithm {
 
     @Override
     public String toString() {
-        return "Population size: " + populationSize + " | implementation: " + implementation.toString() + " | selection1: " +
-                selectionMethod1.toString() + " | selection2: " + selectionMethod2.toString() + " | mutation : " + mutation.toString() +
-                " | crossover: " + crossover.toString() + "| cutCondition: "+ cutCondition.toString() + "| replacement1: " +
-                implementation.getReplacementMethod1().toString() + "| replacement2: " + implementation.getReplacementMethod2().toString();
+        return "Random seed: " + randomSeed +
+                " | Character class: " + characterClass +
+                " | Population size: " + populationSize +
+                " | Parents and children size: " + k +
+                " | Selection method 1: " + selectionMethod1 +
+                " | Selection method 2: " + selectionMethod2 +
+                " | Crossover: " + crossover +
+                " | Mutation: " + mutation +
+                " | Implementation: " + implementation +
+                " | Replacement method 1: " + implementation.getReplacementMethod1() +
+                " | Replacement method 2: " + implementation.getReplacementMethod2() +
+                " | Cut condition: " + cutCondition;
     }
 
-    public GeneticsAlgorithm(final Random random,
+    public GeneticsAlgorithm(final long randomSeed,
                              final int populationSize,
                              final ItemsProvider itemsProvider,
                              final SelectionMethod selectionMethod1,
@@ -55,7 +63,7 @@ public class GeneticsAlgorithm {
                              final int k,
                              final List<Character> firstPopulation,
                              final String characterClass) {
-        this.random = random;
+        this.randomSeed = randomSeed;
         this.populationSize = populationSize;
         this.implementation = implementation;
         this.itemsProvider = itemsProvider;
@@ -69,7 +77,7 @@ public class GeneticsAlgorithm {
         this.characterClass = characterClass;
     }
 
-    public void start() {
+    public Character findBestCharacter() {
         Character bestCharacter = currentPopulation.get(0);
         List <Character> selectedFathers, children, nextPopulation;
         double minimumFitness, averageFitness;
@@ -103,7 +111,7 @@ public class GeneticsAlgorithm {
 
             currentPopulation = nextPopulation;
         }
-        System.out.println(bestCharacter);
+        return bestCharacter;
     }
 
     private List<Character> selectFromMethods(List<Character> population, int n) {

@@ -28,15 +28,17 @@ public class Main {
         PropertiesParser propertiesParser = new PropertiesParser();
         Properties properties = propertiesParser.loadProperties();
         GeneticsAlgorithm geneticsAlgorithm = createGeneticsAlgorithm(properties);
-        geneticsAlgorithm.start();
-        System.out.println("Ejecución realizara con " + geneticsAlgorithm.toString());
-        System.out.println("La ejecución tardó " + (System.currentTimeMillis() - startTime));
+        Character bestCharacter = geneticsAlgorithm.findBestCharacter();
+        System.out.println("Best Character found: " + bestCharacter);
+        System.out.println("Parameters: " + geneticsAlgorithm.toString());
+        System.out.println("Execution time: " + (System.currentTimeMillis() - startTime));
     }
 
     private static GeneticsAlgorithm createGeneticsAlgorithm(final Properties properties) {
         int numberOfItems = ConfigParser.parseNumberOfItems(properties);
         int populationSize = ConfigParser.parsePopulationSize(properties);
-        Random random = ConfigParser.parseRandom(properties);
+        Random random = new Random();
+        long randomSeed = ConfigParser.parseRandom(properties, random);
         Mutation mutation = ConfigParser.parseMutation(properties, random);
         Crossover crossover = ConfigParser.parseCrossover(properties, random);
         SelectionMethod selectionMethod1 = ConfigParser.parseSelectionMethod(properties, ConfigKeys.SELECTION_METHOD_1, random);
@@ -86,7 +88,7 @@ public class Main {
             System.out.println("Invalid character class. Possible options: WARRIOR, ARCHER, DEFENDER, ROGUE");
         }
         return new GeneticsAlgorithm(
-                random,
+                randomSeed,
                 populationSize,
                 itemsProvider,
                 selectionMethod1,

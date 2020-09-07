@@ -46,16 +46,14 @@ public class ConfigParser {
         return result;
     }
 
-    public static Random parseRandom(Properties properties) {
-        long randomSeed = -1;
+    public static long parseRandom(Properties properties, Random random) {
+        long seed = Math.abs(random.nextLong());
         String randomSeedString = (String) properties.get(ConfigKeys.RANDOM_SEED);
         if (randomSeedString != null && !randomSeedString.equals("")) {
-            randomSeed = Long.parseLong(randomSeedString);
+            seed = Long.parseLong(randomSeedString);
         }
-        if (randomSeed == -1) {
-            return new Random();
-        }
-        return new Random(randomSeed);
+        random.setSeed(seed);
+        return seed;
     }
 
     public static CutCondition parseCutCondition(Properties properties) {

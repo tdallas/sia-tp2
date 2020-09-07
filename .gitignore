@@ -13,3 +13,4 @@ buildNumber.properties
 sia-tp2.iml
 fulldata/
 *.tsv
+*.csv

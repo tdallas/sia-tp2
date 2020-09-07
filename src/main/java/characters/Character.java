@@ -117,9 +117,9 @@ public abstract class Character implements Comparable<Character> {
 
     @Override
     public String toString() {
-        return "Height: " + height.getValue() + " | Weapon: " + weapon.getId() +
-                " | Chest: " + chest.getId() + " | Gloves: " + gloves.getId() +
-                " | Boots: " + boots.getId() + " | Helmet: " + helmet.getId() +
+        return "Height: " + height.getValue() + " | Weapon id: " + weapon.getId() +
+                " | Chest id: " + chest.getId() + " | Gloves id: " + gloves.getId() +
+                " | Boots id: " + boots.getId() + " | Helmet id: " + helmet.getId() +
                 " | Fitness: " + getPerformance();
     }
 
