@@ -79,11 +79,11 @@ public class GeneticsAlgorithm {
     }
 
     private List<Character> selectFromMethods(List<Character> population, int n) {
-        int k1 = (int) (selectionMethod1.getPercentage() * n);
-        int K2 = n - k1;
+        int kMethod1 = (int) (selectionMethod1.getPercentage() * n);
+        int kMethod2 = n - kMethod1;
 
-        List<Character> selectedFromMethod1 = selectionMethod1.select(population, k1);
-        List<Character> selectedFromMethod2 = selectionMethod2.select(population, K2);
+        List<Character> selectedFromMethod1 = selectionMethod1.select(population, kMethod1);
+        List<Character> selectedFromMethod2 = selectionMethod2.select(population, kMethod2);
 
         selectedFromMethod1.addAll(selectedFromMethod2);
         return selectedFromMethod1;

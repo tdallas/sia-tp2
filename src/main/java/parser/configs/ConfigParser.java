@@ -194,4 +194,9 @@ public class ConfigParser {
         return tryParseInt((String) properties.get(ConfigKeys.POPULATION_SIZE), "Invalid population size parameter, must be integer");
     }
 
+    public static int parseNumberOfItems(Properties properties){
+        return tryParseInt((String) properties.get(ConfigKeys.NUMBER_OF_ITEMS), "Invalid number of items parameter, must be integer");
+
+    }
+
 }

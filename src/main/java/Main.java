@@ -30,6 +30,7 @@ public class Main {
     }
 
     private static GeneticsAlgorithm createGeneticsAlgorithm(final Properties properties) {
+        int numberOfItems = ConfigParser.parseNumberOfItems(properties);
         int populationSize = ConfigParser.parsePopulationSize(properties);
         Random random = ConfigParser.parseRandom(properties);
         Mutation mutation = ConfigParser.parseMutation(properties, random);
@@ -41,14 +42,14 @@ public class Main {
         Implementation implementation = ConfigParser.parseImplementation(properties, replacementMethod1, replacementMethod2, populationSize);
         CutCondition cutCondition = ConfigParser.parseCutCondition(properties);
 
-        ItemParser itemParser = new ItemParser(properties, 1000);
+        ItemParser itemParser = new ItemParser(properties, numberOfItems);
         final WeaponProvider weaponProvider = new WeaponProvider(itemParser.parseItem(Weapon.class));
         final GlovesProvider glovesProvider = new GlovesProvider(itemParser.parseItem(Gloves.class));
         final BootsProvider bootsProvider = new BootsProvider(itemParser.parseItem(Boots.class));
         final ChestProvider chestProvider = new ChestProvider(itemParser.parseItem(Chest.class));
         final HelmetProvider helmetProvider = new HelmetProvider(itemParser.parseItem(Helmet.class));
 
-        ItemsProvider itemsProvider = new ItemsProvider(1000, bootsProvider, chestProvider, glovesProvider, weaponProvider, helmetProvider);
+        ItemsProvider itemsProvider = new ItemsProvider(numberOfItems, bootsProvider, chestProvider, glovesProvider, weaponProvider, helmetProvider);
 
         List<Character> firstPopulation = null;
 
