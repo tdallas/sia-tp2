@@ -170,6 +170,12 @@ To run the following python visual chart must install the following libraries:
 
 `pip3 install pandas matplotlib`
 
+Then just execute the following bash script:
+
+`./execute_and_graph.sh`
+
+Or do the following steps:
+
 To visualize the jar output must be piped to a .csv file using this command:
 
 `java -jar target/sia-tp2-1.0.jar > output.csv`
@@ -178,7 +184,7 @@ Note: The redirection with pipe in windows is not working.
 
 Then with that file as argument run python file:
 
-`python3 visual/time_vs_particles.py output.csv`
+`python3 visual/graphs.py output.csv`
 
 ## Authors
 
