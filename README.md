@@ -1,6 +1,9 @@
 # sia-tp2
 
 ## Generate executable
+
+Note: Must have dataset folder with tsv files to compile because of the tests.
+
 `mvn clean install`
 
 ## Execute command
@@ -169,7 +172,9 @@ To run the following python visual chart must install the following libraries:
 
 To visualize the jar output must be piped to a .csv file using this command:
 
-`java -jar target/sia-tp2-1.0.jar | output.csv`
+`java -jar target/sia-tp2-1.0.jar > output.csv`
+
+Note: The redirection with pipe in windows is not working.
 
 Then with that file as argument run python file:
 
